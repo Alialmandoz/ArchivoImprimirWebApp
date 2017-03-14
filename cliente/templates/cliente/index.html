@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <style>
+        table, th, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 5px;
+        }
+
+        th {
+            text-align: left;
+        }
+    </style>
+    <title>template para clientes</title>
+</head>
+<body>
+<h1>template para clientes</h1>
+
+<table>
+    <tr>
+        <td><strong>Cliente</strong></td>
+        <td><strong>Ordenes</strong></td>
+    </tr>
+    {% for cliente in clientes %}
+        <tr>
+            <td><h1><a href="{% url 'detalleCliente' pk=cliente.pk %}">{{ cliente.nombre }}</a></h1></td>
+            <td>{{ cliente.ordenesTrabajos }}</td>
+        </tr>
+    {% endfor %}
+</table>
+
+</body>
+</html>
+

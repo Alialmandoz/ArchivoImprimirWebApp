@@ -2,6 +2,8 @@
   <dictionary name="Ivan">
     <words>
       <w>cliente</w>
+      <w>detalle</w>
+      <w>nombre</w>
     </words>
   </dictionary>
 </component>
