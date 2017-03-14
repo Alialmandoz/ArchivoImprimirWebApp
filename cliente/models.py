@@ -1,6 +1,7 @@
 from django.db import models
-
+from ordenesTrabajo.models import Orden
 # Create your models here.
+
 
 
 class Cliente(models.Model):
@@ -9,8 +10,7 @@ class Cliente(models.Model):
     mail = models.EmailField()
     direccrion = models.CharField(max_length=200)
     telefono = models.IntegerField()
-    ordenesTrabajos = models.CharField(max_length=200)
-    slug = models.SlugField(unique=True)
+    ordenes = models.ForeignKey(Orden)
 
     def __str__(self):
         return self.nombre + " " + self.apellido

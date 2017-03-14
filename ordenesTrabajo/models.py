@@ -1,13 +1,11 @@
 from django.db import models
-
-# Create your models here.
+from cliente.models import Cliente
 
 
 class Orden(models.Model):
-    cliente = models.CharField(max_length=200)
+    cli = models.ForeignKey(Cliente)
     trabajos = models.CharField(max_length=200)
     total = models.IntegerField()
-    slug = models.SlugField(unique=True)
 
     def __str__(self):
         return self.pk + " " + self.cliente

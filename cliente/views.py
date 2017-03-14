@@ -7,6 +7,6 @@ def index(request):
     return render(request, 'cliente/index.html', {'clientes': clientes})
 
 
-def detalle_cliente(request, slug):
-    cliente = get_object_or_404(Cliente, slug=slug)
+def detalle_cliente(request, pk):
+    cliente = get_object_or_404(Cliente, pk=pk)
     return render(request, 'cliente/detalleCliente.html', {'cliente': cliente})
