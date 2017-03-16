@@ -5,9 +5,18 @@
     <title></title>
 </head>
 <body>
-    {{ cliente.nombre }}
-    {{ cliente.apellido }}
-    {{ cliente.direccrion }}
-    {{ cliente.mail }}
+    <div>
+        <ul>Nombre: {{ cliente.nombre }}</ul>
+        <ul>Apellido {{ cliente.apellido }}</ul>
+        <ul>Email: {{ cliente.mail }}</ul>
+        <ul>Telefono{{ cliente.telefono }}</ul>
+    </div>
+    <div>
+        ordenes:
+
+        {% for orden in cliente.ordenes %}
+            <p>{{ orden }}</p>
+        {% endfor %}
+    </div>
 </body>
 </html>

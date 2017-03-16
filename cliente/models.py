@@ -10,7 +10,8 @@ class Cliente(models.Model):
     mail = models.EmailField()
     direccrion = models.CharField(max_length=200)
     telefono = models.IntegerField()
-    ordenes = models.ForeignKey(Orden)
+    ordenes = models.ForeignKey(Orden, blank=True, null=True)
+    slug = models.SlugField(unique=True)
 
     def __str__(self):
         return self.nombre + " " + self.apellido
