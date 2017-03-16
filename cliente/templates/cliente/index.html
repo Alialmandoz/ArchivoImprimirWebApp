@@ -28,11 +28,14 @@
     </tr>
     {% for cliente in clientes %}
         <tr>
-            <td><h1><a href="{% url 'detalleCliente' nombre=cliente.nombre  %}">{{ cliente.nombre }}</a></h1></td>
-            <td>{{ cliente.ordenes }}</td>
+            <td><h1><a href="{% url 'detalleCliente' slug=cliente.slug  %}">{{ cliente.slug}}</a></h1></td>
+            <td>hola{{ cliente.ordenes}}</td>
+
         </tr>
     {% endfor %}
 </table>
+
+<div><a href="http://127.0.0.1:8000/admin/">admin</a></div>
 
 </body>
 </html>
