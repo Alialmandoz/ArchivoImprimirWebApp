@@ -17,4 +17,4 @@ class Ordenes(models.Model):
     cliente = models.ForeignKey(Cliente, on_delete=models.CASCADE)
 
     def __str__(self):
-        return str(self.tipo) + " " + str(self.monto)
+        return str(self.get_tipo_display()) + " " + str(self.monto)

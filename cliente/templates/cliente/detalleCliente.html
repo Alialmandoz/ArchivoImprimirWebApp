@@ -14,7 +14,10 @@
     <div>
         ordenes:
         {% for orden in ordenes %}
-            <p>{{ orden.pockol }}</p>
+            {% if orden.cliente.nombre == cliente.nombre %}
+                {{ orden }}
+            {% endif %}
+
         {% endfor %}
     </div>
 </body>

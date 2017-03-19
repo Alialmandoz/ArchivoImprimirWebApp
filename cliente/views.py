@@ -10,4 +10,5 @@ def index(request):
 
 def detalle_cliente(request, slug):
     cliente = get_object_or_404(Cliente, slug=slug)
-    return render(request, 'cliente/detalleCliente.html', {'cliente': cliente})
+    ordenes = Ordenes.objects.all()
+    return render(request, 'cliente/detalleCliente.html', {'cliente': cliente, 'ordenes': ordenes})
