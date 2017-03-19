@@ -1,5 +1,6 @@
 from django.contrib import admin
 from .models import Cliente
+from .models import Ordenes
 
 
 class ClienteAdmin(admin.ModelAdmin):
@@ -8,3 +9,11 @@ class ClienteAdmin(admin.ModelAdmin):
     prepopulated_fields = {'slug': ('nombre', 'apellido',)}
 # Register your models here.
 admin.site.register(Cliente, ClienteAdmin)
+
+
+class OrdenAdmin(admin.ModelAdmin):
+    model = Ordenes
+    list_display = ('tipo', 'monto', 'cliente',)
+
+# Register your models here.
+admin.site.register(Ordenes, OrdenAdmin)

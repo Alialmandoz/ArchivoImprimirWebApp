@@ -13,9 +13,8 @@
     </div>
     <div>
         ordenes:
-
-        {% for orden in cliente.ordenes %}
-            <p>{{ orden }}</p>
+        {% for orden in ordenes %}
+            <p>{{ orden.pockol }}</p>
         {% endfor %}
     </div>
 </body>

@@ -28,8 +28,13 @@
     </tr>
     {% for cliente in clientes %}
         <tr>
-            <td><h1><a href="{% url 'detalleCliente' slug=cliente.slug  %}">{{ cliente.slug}}</a></h1></td>
-            <td>hola{{ cliente.ordenes}}</td>
+            <td><h1><a href="{% url 'detalleCliente' slug=cliente.slug  %}">{{ cliente.nombre}} {{ cliente.apellido }}</a></h1></td>
+            <td>{% for orden in ordenes %}
+                    {% if orden.cliente.nombre == cliente.nombre %}
+                        {{ orden }}
+                    {% endif %}
+
+                {% endfor %}</td>
 
         </tr>
     {% endfor %}

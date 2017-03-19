@@ -4,6 +4,7 @@
       <w>cliente</w>
       <w>detalle</w>
       <w>nombre</w>
+      <w>ordenes</w>
     </words>
   </dictionary>
 </component>
