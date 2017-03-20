@@ -1,24 +1,22 @@
-<!DOCTYPE html>
-<html>
-<head lang="en">
-    <meta charset="UTF-8">
-    <title></title>
-</head>
-<body>
+{% extends 'layouts/base.html' %}
+{% block title %}Detalle cliente - {{ block.super }}{% endblock %}
+{% block content %}
     <div>
-        <ul>Nombre: {{ cliente.nombre }}</ul>
-        <ul>Apellido {{ cliente.apellido }}</ul>
-        <ul>Email: {{ cliente.mail }}</ul>
-        <ul>Telefono{{ cliente.telefono }}</ul>
+        <ul>Nombre: {{ cliente.nombre.title }}</ul>
+        <ul>Apellido: {{ cliente.apellido.title}}</ul>
+    <a href="{% url 'editarCliente' slug=cliente.slug %}">Edit me!</a>
     </div>
-    <div>
-        ordenes:
+    <div style="align-self: auto">
+    <table class="tabla">
+         <td>Ordenes:</td>
         {% for orden in ordenes %}
-            {% if orden.cliente.nombre == cliente.nombre %}
-                {{ orden }}
-            {% endif %}
-
+            <tr class="tabla">
+                {% if orden.cliente.nombre == cliente.nombre %}
+                    <td>{{ orden}}</td>
+                {% endif %}
+            </tr>
         {% endfor %}
+    </table>
+
     </div>
-</body>
-</html>
+{% endblock %}

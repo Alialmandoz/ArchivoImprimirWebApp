@@ -1,0 +1,11 @@
+
+.tabla tr td {
+    padding: 8px;
+    border: solid;
+    border-left-color: #ffffff;
+    border-right-color: #ffffff;
+    border-color: #ffffff;
+    background-color: #205067;
+
+}
+

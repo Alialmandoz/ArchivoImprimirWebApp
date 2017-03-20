@@ -1,0 +1,49 @@
+{% load staticfiles %}
+<!doctype html>
+<link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/superhero/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-Xqcy5ttufkC3rBa8EdiAyA1VgOGrmel2Y+wxm4K3kI3fcjTWlDWrlnxyD6hOi3PF"
+      crossorigin="anonymous">
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+      rel="stylesheet"
+      integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
+      crossorigin="anonymous">
+ <link rel="stylesheet"href="{% static 'css/baseStyle.css' %}" />
+
+
+<html>
+<head>
+    <title>
+        {% block title %}
+            ArchivoImprimir.com.ar
+        {% endblock %}
+    </title>
+    {% block header %}{% endblock %}
+</head>
+<body>
+<div class="navbar navbar-default navbar-static-top" role="navigation">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar">
+            </span><span class="icon-bar">
+        </span><span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">ArchivoImprimir.com.ar</a>
+        </div>
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="/">Inicio</a></li>
+                <li><a href="http://127.0.0.1:8000/admin/">Admin</a></li>
+            </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+{% block content %}{% endblock %}
+{% block footer %}{% endblock %}
+</body>
+</html>
+

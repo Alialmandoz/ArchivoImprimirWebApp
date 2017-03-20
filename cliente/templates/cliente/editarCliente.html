@@ -1,0 +1,12 @@
+{% extends 'layouts/base.html' %}
+{% block title %}
+    Editar {{ cliente.nombre }} - {{ block.super }}
+{% endblock %}
+{% block content %}
+    <h1>Editar "{{ cliente.nombre }}"</h1>
+    <form role="form" action="" method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" style="color: #993300">Cambiar</button>
+    </form>
+{% endblock %}

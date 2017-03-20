@@ -1,8 +1,10 @@
-{% extends 'layouts/base.html' %}
-{% block title %}Inicio -{{ block.super }}{% endblock %}
-{% block content %}
-<h2>template para clientes</h2>
-
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
 <table class="tabla">
     <tr>
         <td><strong>Cliente</strong></td>
@@ -22,12 +24,5 @@
 </table>
     <br>
 
-<div>
-    <form method="get" action="buscar/" class="navbar-form pull-right">
-        <input type="text" id="searchBox" class="Busqueda" name="q" placeholder="Buscar" value="{{ request.GET.q }}">
-        <input type="submit" class="btn" value="Buscar">
-    </form>
-</div>
-
-{% endblock %}
-
+</body>
+</html>
