@@ -19,6 +19,11 @@
         {% endblock %}
     </title>
     {% block header %}{% endblock %}
+<style>
+    strong {
+        font-weight: bold;
+    }
+</style>
 </head>
 <body>
 <div class="navbar navbar-default navbar-static-top" role="navigation">
@@ -35,7 +40,8 @@
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
                 <li><a href="/">Inicio</a></li>
-                <li><a href="http://127.0.0.1:8000/admin/">Admin</a></li>
+                <li><a href="admin/">Admin</a></li>
+                 <li><a href="crear_orden/">Crear Orden</a></li>
             </ul>
                 </li>
             </ul>

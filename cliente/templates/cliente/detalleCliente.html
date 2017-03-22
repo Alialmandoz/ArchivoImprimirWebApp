@@ -11,7 +11,7 @@
          <td>Ordenes:</td>
         {% for orden in ordenes %}
             <tr class="tabla">
-                {% if orden.cliente.nombre == cliente.nombre %}
+                {% if orden.cliente.slug == cliente.slug %}
                     <td>{{ orden}}</td>
                 {% endif %}
             </tr>

@@ -14,7 +14,7 @@
         <tr>
             <td><a href="{% url 'detalleCliente' slug=cliente.slug  %}">{{ cliente.nombre}} {{ cliente.apellido }}</a></td>
             <td>{% for orden in ordenes %}
-                    {% if orden.cliente.nombre == cliente.nombre %}
+                    {% if orden.cliente.slug == cliente.slug %}
                         {{ orden }}<br>
                     {% endif %}
                 {% endfor %}

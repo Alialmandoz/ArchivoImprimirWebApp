@@ -13,7 +13,7 @@ admin.site.register(Cliente, ClienteAdmin)
 
 class OrdenAdmin(admin.ModelAdmin):
     model = Ordenes
-    list_display = ('tipo', 'monto', 'cliente',)
+    list_display = ('cliente', 'monto', 'tipo',)
 
 # Register your models here.
 admin.site.register(Ordenes, OrdenAdmin)

@@ -1,0 +1,9 @@
+{% extends 'layouts/base.html' %}
+{% block title %}Detalle Orden - {{ block.super }}{% endblock %}
+{% block content %}
+    <div>
+        <ul>Cliente:  {{ orden.cliente }}</ul>
+        <ul>Tipo:  {{ orden.tipo }}</ul>
+        <ul>Monto:  {{ orden.monto }}</ul>
+    </div>
+{% endblock %}
