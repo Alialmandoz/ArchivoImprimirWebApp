@@ -77,15 +77,18 @@
       <column name="id" sqlType="INTEGER" precision="2000000000" scale="10" nullable="false" jdbcType="4"/>
       <column name="nombre" sqlType="VARCHAR(200)" precision="2000000000" scale="10" nullable="false" jdbcType="12"/>
       <column name="apellido" sqlType="VARCHAR(200)" precision="2000000000" scale="10" nullable="false" jdbcType="12"/>
+      <column name="direccion" sqlType="VARCHAR(200)" precision="2000000000" scale="10" nullable="false" jdbcType="12"/>
+      <column name="mail" sqlType="VARCHAR(254)" precision="2000000000" scale="10" nullable="true" jdbcType="12"/>
+      <column name="telefono" sqlType="VARCHAR(200)" precision="2000000000" scale="10" nullable="true" jdbcType="12"/>
       <column name="slug" sqlType="VARCHAR(50)" precision="2000000000" scale="10" nullable="false" jdbcType="12"/>
       <primary-key columns="id"/>
       <exported-key name="#FAKE_cliente_ordenes_1" table="cliente_ordenes" schema="" catalog="" columns="cliente_id"/>
     </table>
     <table name="cliente_ordenes" schema="" catalog="" type="TABLE">
       <column name="id" sqlType="INTEGER" precision="2000000000" scale="10" nullable="false" jdbcType="4"/>
-      <column name="tipo" sqlType="INTEGER" precision="2000000000" scale="10" nullable="false" jdbcType="4"/>
       <column name="monto" sqlType="INTEGER" precision="2000000000" scale="10" nullable="false" jdbcType="4"/>
       <column name="cliente_id" sqlType="INTEGER" precision="2000000000" scale="10" nullable="false" jdbcType="4"/>
+      <column name="tipo" sqlType="INTEGER" precision="2000000000" scale="10" nullable="false" jdbcType="4"/>
       <primary-key columns="id"/>
       <foreign-key name="#FAKE_cliente_ordenes_1" columns="cliente_id" ref-table="cliente_cliente" ref-schema="" ref-catalog="" ref-columns="id" update-rule="3" delete-rule="3" deferrability="1"/>
       <index name="cliente_ordenes_4a860110" unique="true" columns="cliente_id"/>

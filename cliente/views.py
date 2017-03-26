@@ -1,4 +1,5 @@
 from django.shortcuts import render, get_object_or_404, redirect, get_list_or_404
+from django.template.defaultfilters import slugify
 
 from .models import Cliente, Ordenes
 from .forms import ClienteForm, OrdenForm
@@ -38,11 +39,14 @@ def editar_cliente(request, slug):
     return render(request, 'Cliente/editarCliente.html', {'cliente': cliente, 'form': form})
 
 
-def buscar(request):
+def buscar_cliente(request):
+        return render(request, 'cliente/buscar_cliente.html', {})
+
+
+def resultado(request):
     a_buscar = request.GET.get('q')
     clientes = (get_list_or_404(Cliente, slug__icontains=a_buscar))
     ordenes = Ordenes.objects.all()
-
     return render(request, 'cliente/resultado.html', {'clientes': clientes, 'ordenes': ordenes})
 
 
@@ -52,7 +56,6 @@ def detalle_orden(request, pk):
 
 
 def crear_orden(request):
-
     if request.method == "POST":
         form = OrdenForm(request.POST)
         if form.is_valid():
@@ -61,3 +64,16 @@ def crear_orden(request):
     else:
         form = OrdenForm()
     return render(request, 'cliente/crear_orden.html', {'form': form})
+
+
+def crear_cliente(request):
+    if request.method == "POST":
+        form = ClienteForm(request.POST)
+        if form.is_valid():
+            clientecreado = form.save(commit=False)
+            clientecreado.slug = slugify(clientecreado.nombre + '-' + clientecreado.apellido)
+            clientecreado = form.save()
+            return redirect('detalleCliente', slug=slugify(clientecreado.nombre + '-' + clientecreado.apellido))
+    else:
+        form = ClienteForm()
+    return render(request, 'cliente/crearcliente.html', {'form': form})

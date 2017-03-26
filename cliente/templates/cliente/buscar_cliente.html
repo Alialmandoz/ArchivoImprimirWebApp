@@ -1,0 +1,27 @@
+{% extends 'layouts/base.html' %}
+{% block title %}{{ block.super }} - Buscar liete{% endblock %}
+{% block content %}
+
+    <!--barra de busqueda-->
+    <div class="section">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-offset-3 col-md-8">
+            <form role="form" action="{% url 'resultado' %}" method="get" accept-charset="utf-8">
+              <div class="form-group">
+                <div class="input-group">
+                  <input type="text" class="form-control" name="q" placeholder="Buscar Cliente" action="{% url 'resultado' %}">
+                  <span class="input-group-btn">
+                    <button class="btn btn-primary"  type="submit" >Buscar</button>
+                  </span>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+ <!-- fin barra de busqueda--
+    <!-- fin barra de busqueda-->
+
+{% endblock %}

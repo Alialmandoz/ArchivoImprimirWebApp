@@ -3,7 +3,7 @@
 {% block content %}
     <div>
         <ul>Cliente:  {{ orden.cliente }}</ul>
-        <ul>Tipo:  {{ orden.tipo }}</ul>
+        <ul>Tipo:  {{ orden.get_tipo_display}}</ul>
         <ul>Monto:  {{ orden.monto }}</ul>
     </div>
 {% endblock %}

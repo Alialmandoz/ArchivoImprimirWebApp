@@ -1,28 +1,37 @@
-<!DOCTYPE html>
-<html>
-<head lang="en">
-    <meta charset="UTF-8">
-    <title></title>
-</head>
-<body>
-<table class="tabla">
-    <tr>
-        <td><strong>Cliente</strong></td>
-        <td><strong>Ordenes</strong></td>
-    </tr>
-    {% for cliente in clientes %}
-        <tr>
-            <td><a href="{% url 'detalleCliente' slug=cliente.slug  %}">{{ cliente.nombre}} {{ cliente.apellido }}</a></td>
-            <td>{% for orden in ordenes %}
-                    {% if orden.cliente.slug == cliente.slug %}
-                        {{ orden }}<br>
-                    {% endif %}
-                {% endfor %}
-            </td>
-        </tr>
-    {% endfor %}
-</table>
-    <br>
+{% extends 'layouts/base.html' %}
+{% block title %}{{ block.super }} - Buscar liete{% endblock %}
+{% block content %}
 
-</body>
-</html>
+<!--resultados de busqueda-->
+<div class="section">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <td><strong>Nombre</strong></td>
+                        <td><strong>Apellido</strong></td>
+                    </tr>
+                    </thead>
+                    <tbody>
+                   {% for cliente in clientes %}
+                    <tr>
+                        <td>
+                            <a href="{% url 'detalleCliente' slug=cliente.slug %}">{{ cliente.nombre }} {{ cliente.apellido }}</a>
+                        </td>
+                        <td>{% for orden in ordenes %}
+                            {% if orden.cliente.slug == cliente.slug %}
+                                {{ orden }}<br>
+                            {% endif %}
+                        {% endfor %}
+                        </td>
+                    </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

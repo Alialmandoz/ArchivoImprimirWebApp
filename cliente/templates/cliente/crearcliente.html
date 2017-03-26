@@ -1,18 +1,18 @@
 {% extends 'layouts/base.html' %}
 {% block title %}
-    <strong>Crear orden</strong>
+    Crear Cliente
 {% endblock %}
 {% block content %}
-   <div class="section">
+    <div class="section">
         <div class="container">
             <div class="row">
                 <div class="col-md-4"></div>
                 <div class="col-md-4 text">
-                    <h3>Crear Orden</h3>
+                    <h3>Crear Cliente</h3>
                     <div class="container-fluid">
                         <form role="form" action="" method="post" class="text-justify">
                         {% csrf_token %}
-                        <ul class="col-md-4 text-justify">
+                        <ul class="col-md-4 text-center">
 
                         {% for field in form %}
                             <p class="h3 text-left">{{ field.name.title }}{{ field }}</p>

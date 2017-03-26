@@ -1,33 +1,41 @@
 {% extends 'layouts/base.html' %}
-{% block title %}Inicio -{{ block.super }}{% endblock %}
+{% load static %}
+{% block title %}{{ block.super }} - Inicio{% endblock %}
 {% block content %}
-<h2>template para clientes</h2>
 
-<table class="tabla">
-    <tr>
-        <td><strong>Cliente</strong></td>
-        <td><strong>Ordenes</strong></td>
-    </tr>
-    {% for cliente in clientes %}
-        <tr>
-            <td><a href="{% url 'detalleCliente' slug=cliente.slug  %}">{{ cliente.nombre}} {{ cliente.apellido }}</a></td>
-            <td>{% for orden in ordenes %}
-                    {% if orden.cliente.slug == cliente.slug %}
-                        <a href="{% url 'orden' pk=orden.pk  %} ">orden {{ orden.pk}}  {{ orden.get_tipo_display}}</a><br>
-                    {% endif %}
-                {% endfor %}
-            </td>
-        </tr>
-    {% endfor %}
-</table>
-    <br>
+    <!--cuadro de inicio-->
+    <div class="section ">
+        <div class="container">
+            <div class="row vertical-align">
+                <div class="col-md-3">
+                    <a href="#"><img src= "static/images/presupuesto.png"
+                                     class="img-responsive"></a>
 
-<div>
-    <form method="get" action="buscar/" class="navbar-form pull-right">
-        <input type="text" id="searchBox" class="Busqueda" name="q" placeholder="Buscar" value="{{ request.GET.q }}">
-        <input type="submit" class="btn" value="Buscar">
-    </form>
-</div>
+                    <h1 class="text-center">Presupuesto</h1>
+                </div>
+                <div class="col-md-3">
+                    <a href="{% url 'crear_orden' %}"><img src="static/images/nuevo_pedido.png"
+                                     class="img-responsive"></a>
+
+                    <h1 class="text-center">Nuevo Pedido</h1>
+                </div>
+                <div class="col-md-3">
+                    <a href="{% url 'buscar_cliente' %}"><img src="static/images/buscar_cliente.png"
+                                     class="img-responsive"></a>
+
+                    <h1 class="text-center">Buscar Cliente</h1>
+                </div>
+                <div class="col-md-3">
+                    <a href="#"><img src="static/images/buscar_orden.png"
+                                     class="img-responsive"></a>
+
+                    <h1 class="text-center">Buscar Orden</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+    </body>
+
+    <!-- fin barra de busqueda-->
 
 {% endblock %}
-
