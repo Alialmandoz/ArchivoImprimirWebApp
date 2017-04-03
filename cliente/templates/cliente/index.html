@@ -2,40 +2,62 @@
 {% load static %}
 {% block title %}{{ block.super }} - Inicio{% endblock %}
 {% block content %}
-
     <!--cuadro de inicio-->
     <div class="section ">
         <div class="container">
             <div class="row vertical-align">
-                <div class="col-md-3">
-                    <a href="#"><img src= "static/images/presupuesto.png"
-                                     class="img-responsive"></a>
-
-                    <h1 class="text-center">Presupuesto</h1>
+                <div class="col-md-6">
+                    <div class="panel panel-primary">
+                        <div class="panel-body" style="max-height: 150px; min-height: 150px;">
+                            <form role="form" action="." method="get" accept-charset="utf-8">
+                                <div class="form-group">
+                                    <div class="input-group">
+                                        <input type="text" class="form-control" name="q" placeholder="Buscar Cliente"
+                                               action=".">
+                                          <span class="input-group-btn">
+                                            <button class="btn btn-primary" type="submit">Buscar</button>
+                                          </span>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
                 </div>
-                <div class="col-md-3">
-                    <a href="{% url 'crear_orden' %}"><img src="static/images/nuevo_pedido.png"
-                                     class="img-responsive"></a>
-
-                    <h1 class="text-center">Nuevo Pedido</h1>
-                </div>
-                <div class="col-md-3">
-                    <a href="{% url 'buscar_cliente' %}"><img src="static/images/buscar_cliente.png"
-                                     class="img-responsive"></a>
-
-                    <h1 class="text-center">Buscar Cliente</h1>
-                </div>
-                <div class="col-md-3">
-                    <a href="#"><img src="static/images/buscar_orden.png"
-                                     class="img-responsive"></a>
-
-                    <h1 class="text-center">Buscar Orden</h1>
+                <div class="col-md-6">
+                    <div class="panel panel-primary">
+                        <div class="panel-body" style="max-height: 150px; min-height: 150px; overflow-y: scroll;">
+                            <p>
+                            <table class="table table-bordered table-hover table-striped">
+                                <thead>
+                                <tr>
+                                    <td><strong>Nombre</strong></td>
+                                    <td><strong>Ordenes</strong></td>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                {% for cliente in clientes %}
+                                    <tr>
+                                        <td>
+                                            <a href="{% url 'detalleCliente' slug=cliente.slug %}">{{ cliente.nombre }} {{ cliente.apellido }}</a>
+                                        </td>
+                                        <td>{% for orden in ordenes %}
+                                            {% if orden.cliente.slug == cliente.slug %}
+                                                {{ orden }}<br>
+                                            {% endif %}
+                                        {% endfor %}
+                                        </td>
+                                    </tr>
+                                {% endfor %}
+                                </tbody>
+                            </p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
     </body>
 
-    <!-- fin barra de busqueda-->
+    </html>
 
 {% endblock %}

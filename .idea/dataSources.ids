@@ -86,9 +86,12 @@
     </table>
     <table name="cliente_ordenes" schema="" catalog="" type="TABLE">
       <column name="id" sqlType="INTEGER" precision="2000000000" scale="10" nullable="false" jdbcType="4"/>
-      <column name="monto" sqlType="INTEGER" precision="2000000000" scale="10" nullable="false" jdbcType="4"/>
-      <column name="cliente_id" sqlType="INTEGER" precision="2000000000" scale="10" nullable="false" jdbcType="4"/>
       <column name="tipo" sqlType="INTEGER" precision="2000000000" scale="10" nullable="false" jdbcType="4"/>
+      <column name="cliente_id" sqlType="INTEGER" precision="2000000000" scale="10" nullable="false" jdbcType="4"/>
+      <column name="detalle" sqlType="TEXT" precision="2000000000" scale="10" nullable="true" jdbcType="12"/>
+      <column name="entrega" sqlType="DECIMAL" precision="2000000000" scale="10" nullable="true" jdbcType="6"/>
+      <column name="saldo" sqlType="DECIMAL" precision="2000000000" scale="10" nullable="true" jdbcType="6"/>
+      <column name="monto" sqlType="DECIMAL" precision="2000000000" scale="10" nullable="true" jdbcType="6"/>
       <primary-key columns="id"/>
       <foreign-key name="#FAKE_cliente_ordenes_1" columns="cliente_id" ref-table="cliente_cliente" ref-schema="" ref-catalog="" ref-columns="id" update-rule="3" delete-rule="3" deferrability="1"/>
       <index name="cliente_ordenes_4a860110" unique="true" columns="cliente_id"/>

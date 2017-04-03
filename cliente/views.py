@@ -6,9 +6,27 @@ from .forms import ClienteForm, OrdenForm
 
 
 def index(request):
+    a_buscar = request.GET.get('q')
     clientes = Cliente.objects.all()
     ordenes = Ordenes.objects.all()
+    if a_buscar is not None:
+        clientes = (get_list_or_404(Cliente, slug__icontains=a_buscar))
+        ordenes = Ordenes.objects.all()
+        return render(request, 'cliente/index.html', {'clientes': clientes, 'ordenes': ordenes})
     return render(request, 'cliente/index.html', {'clientes': clientes, 'ordenes': ordenes})
+
+
+''' if request.method == "GET":
+     clientes = Cliente.objects.all()
+     ordenes = Ordenes.objects.all()
+     print("entrando por el if")
+     return render(request, 'cliente/index.html', {'clientes': clientes, 'ordenes': ordenes})
+ else:
+     print("entrando por el else")
+     a_buscar = request.GET.get('q')
+     clientes = (get_list_or_404(Cliente, slug__icontains=a_buscar))
+     ordenes = Ordenes.objects.all()
+     return render(request, 'cliente/index.html', {'clientes': clientes, 'ordenes': ordenes})'''
 
 
 def detalle_cliente(request, slug):
@@ -40,7 +58,7 @@ def editar_cliente(request, slug):
 
 
 def buscar_cliente(request):
-        return render(request, 'cliente/buscar_cliente.html', {})
+    return render(request, 'cliente/buscar_cliente.html', {})
 
 
 def resultado(request):

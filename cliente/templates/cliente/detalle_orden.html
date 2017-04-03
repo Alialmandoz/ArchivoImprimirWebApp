@@ -1,9 +1,25 @@
 {% extends 'layouts/base.html' %}
-{% block title %}Detalle Orden - {{ block.super }}{% endblock %}
+{% block title %}
+   {{ block.super }} - Detalle Orden
+{% endblock %}
 {% block content %}
-    <div>
-        <ul>Cliente:  {{ orden.cliente }}</ul>
-        <ul>Tipo:  {{ orden.get_tipo_display}}</ul>
-        <ul>Monto:  {{ orden.monto }}</ul>
+    <div class="section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4"></div>
+                <div class="col-md-4 text">
+                    <div class="container-fluid">
+                        <h3>Detalle orden {{ orden.pk }}</h3>
+                        <ul>Cliente: {{orden.cliente}}</ul>
+                        <ul>Tipo: {{orden.get_tipo_display}}</ul>
+                        <ul>Tipo: {{orden.detalle}}</ul>
+                        <ul>Monto: {{orden.monto}}</ul>
+                        <ul>Entrega: {{orden.entrega}}</ul>
+                        <ul>Saldo: {{orden.saldo}}</ul>
+                    </div>
+                </div>
+                <div class="col-md-4"></div>
+            </div>
+        </div>
     </div>
 {% endblock %}

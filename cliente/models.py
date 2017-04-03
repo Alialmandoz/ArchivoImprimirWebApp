@@ -1,5 +1,6 @@
-from django.db import models
 from .choices import *
+from django.db import models
+from django.db.models import DecimalField
 
 
 class Cliente(models.Model):
@@ -16,7 +17,10 @@ class Cliente(models.Model):
 
 class Ordenes(models.Model):
     tipo = models.IntegerField(choices=TIPO_TRABAJO)
-    monto = models.IntegerField()
+    detalle = models.TextField(null=True)
+    monto = models.DecimalField(max_digits=8, decimal_places=2, blank=True, null=True)
+    entrega = DecimalField(max_digits=8, decimal_places=2, blank=True, null=True)
+    saldo = DecimalField(max_digits=8, decimal_places=2, blank=True, null=True)
     cliente = models.ForeignKey(Cliente, on_delete=models.CASCADE)
 
     def __str__(self):

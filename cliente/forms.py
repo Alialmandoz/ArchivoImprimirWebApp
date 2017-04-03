@@ -11,4 +11,4 @@ class ClienteForm(ModelForm):
 class OrdenForm(ModelForm):
     class Meta:
         model = Ordenes
-        fields = ('cliente', 'monto', 'tipo')
+        fields = ('cliente', 'tipo', 'detalle', 'monto', 'entrega', 'saldo')

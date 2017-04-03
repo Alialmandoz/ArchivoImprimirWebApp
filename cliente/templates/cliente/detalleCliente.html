@@ -1,22 +1,46 @@
 {% extends 'layouts/base.html' %}
+
 {% block title %}Detalle cliente - {{ block.super }}{% endblock %}
 {% block content %}
-    <div>
-        <ul>Nombre: {{ cliente.nombre.title }}</ul>
-        <ul>Apellido: {{ cliente.apellido.title}}</ul>
-    <a href="{% url 'editarCliente' slug=cliente.slug %}">Edit me!</a>
-    </div>
-    <div style="align-self: auto">
-    <table class="tabla">
-         <td>Ordenes:</td>
-        {% for orden in ordenes %}
-            <tr class="tabla">
-                {% if orden.cliente.slug == cliente.slug %}
-                    <td>{{ orden}}</td>
-                {% endif %}
-            </tr>
-        {% endfor %}
-    </table>
 
+
+    <div class="section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="jumbotron text-center">
+                        <h1 class="text-left">{{ cliente.nombre.title }} {{ cliente.apellido.title }}</h1>
+                        <img src="static/images/buscar_cliente.png"
+                             class="img-responsive"></a>
+                        <a class="btn btn-primary btn-large"
+                           href="{% url 'editarCliente' slug=cliente.slug %}">Editar</a>
+                        <a class="btn btn-primary btn-large" href="{% url 'crear_orden' %}">Crear Orden</a>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="jumbotron text-center">
+                        <table class="table">
+                            <thead>
+                            <tr>
+                                <th>orden</th>
+                                <th>detalle</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {% for orden in ordenes %}
+                                <tr class="table-bordered">
+                                    {% if orden.cliente.slug == cliente.slug %}
+                                        <td>{{ orden.id }}</td>
+                                        <td>{{ orden.detalle }}</td>
+                                    {% endif %}
+                                </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
+    </body>
 {% endblock %}
