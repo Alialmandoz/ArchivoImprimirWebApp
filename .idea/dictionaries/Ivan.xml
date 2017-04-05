@@ -4,13 +4,18 @@
       <w>apellido</w>
       <w>buscar</w>
       <w>busqueda</w>
+      <w>cantidades</w>
       <w>cliente</w>
       <w>crear</w>
       <w>detalle</w>
+      <w>hoja</w>
       <w>nombre</w>
       <w>orden</w>
       <w>ordenes</w>
       <w>resultado</w>
+      <w>soporte</w>
+      <w>tipo</w>
+      <w>trabajo</w>
     </words>
   </dictionary>
 </component>

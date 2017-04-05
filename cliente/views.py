@@ -2,7 +2,7 @@ from django.shortcuts import render, get_object_or_404, redirect, get_list_or_40
 from django.template.defaultfilters import slugify
 
 from .models import Cliente, Ordenes
-from .forms import ClienteForm, OrdenForm
+from .forms import ClienteForm, OrdenForm, Calculador
 
 
 def index(request):
@@ -14,19 +14,6 @@ def index(request):
         ordenes = Ordenes.objects.all()
         return render(request, 'cliente/index.html', {'clientes': clientes, 'ordenes': ordenes})
     return render(request, 'cliente/index.html', {'clientes': clientes, 'ordenes': ordenes})
-
-
-''' if request.method == "GET":
-     clientes = Cliente.objects.all()
-     ordenes = Ordenes.objects.all()
-     print("entrando por el if")
-     return render(request, 'cliente/index.html', {'clientes': clientes, 'ordenes': ordenes})
- else:
-     print("entrando por el else")
-     a_buscar = request.GET.get('q')
-     clientes = (get_list_or_404(Cliente, slug__icontains=a_buscar))
-     ordenes = Ordenes.objects.all()
-     return render(request, 'cliente/index.html', {'clientes': clientes, 'ordenes': ordenes})'''
 
 
 def detalle_cliente(request, slug):
@@ -95,3 +82,16 @@ def crear_cliente(request):
     else:
         form = ClienteForm()
     return render(request, 'cliente/crearcliente.html', {'form': form})
+
+
+def simple(request):
+    form_class = Calculador
+    form = form_class(data=request.POST)
+
+    soporte = form.data.get('soporte')
+
+
+    return render(request,
+                  'cliente/simple.html',
+                  {'form': form, 'soporte': soporte}
+                  )
