@@ -1,7 +1,12 @@
 from cliente.choices import *
 from django.forms import ModelForm
-from cliente.models import Cliente, Ordenes
+
 from django import forms
+
+from openpyxl import *
+
+from cliente.models import Cliente, Ordenes
+
 
 class ClienteForm(ModelForm):
     class Meta:
@@ -15,12 +20,29 @@ class OrdenForm(ModelForm):
         fields = ('cliente', 'tipo', 'detalle', 'monto', 'entrega', 'saldo')
 
 
-BIRTH_YEAR_CHOICES = ('1980', '1981', '1982')
-FAVORITE_COLORS_CHOICES = (('blue', 'Blue'), ('green', 'Green'), ('black', 'Black'),)
-
-
 class Calculador(forms.Form):
-    soporte = forms.CharField(max_length=3, widget=forms.Select(choices=SOPORTE))
-    impresion = forms.MultipleChoiceField(required=True, widget=forms.CheckboxSelectMultiple, choices=HOJA)
-    cantidad  = forms.IntegerField()
-    byn = forms.MultipleChoiceField(required=True, widget=forms.CheckboxSelectMultiple, choices=BYN)
+    cantidad = forms.IntegerField(required=True)
+    soporte = forms.CharField(widget=forms.Select(choices=SOPORTE))
+    impresion = forms.CharField(widget=forms.Select(choices=HOJA))
+    blanco_y_negro = forms.MultipleChoiceField(required=False, widget=forms.CheckboxInput, choices=BYN)
+
+    def calcular(self, material, cantidad, caras):
+        if 1 <= cantidad <= 4:
+            cant = '2'
+        elif 5 <= cantidad <= 10:
+            cant = '3'
+        elif 11 <= cantidad <= 50:
+            cant = '4'
+        elif 51 <= cantidad <= 100:
+            cant = '5'
+        elif 101 <= cantidad <= 250:
+            cant = '6'
+        else:
+            cant = '7'
+
+        if int(caras[0]) > 1:
+            material = (chr(ord(material) + 1))
+        cell = str(str(material) + str(cant))
+        lista = load_workbook('cliente/static/pdf/lista.xlsx')
+        precio = lista['lista'][cell].value
+        return "{:10.2f}".format(precio * cantidad)

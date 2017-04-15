@@ -10,7 +10,7 @@ urlpatterns = [
     url(r'^orden/(?P<pk>[-\d]+)/$', views.detalle_orden, name='orden'),
     url(r'^crear_orden/$', views.crear_orden, name='crear_orden'),
     url(r'^crear_cliente/$', views.crear_cliente, name='crear_cliente'),
-    url(r'^simple/$', views.simple, name='simple'),
+    url(r'^calculador/$', views.calculador, name='calculador'),
 
 
 ]

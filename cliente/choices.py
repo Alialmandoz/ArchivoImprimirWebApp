@@ -5,34 +5,57 @@ TIPO_TRABAJO = (
 
 
 SOPORTE = (
-    (1, ("Obra 80")),
-    (2, ("Ilustracion 130")),
-    (3, ("Ilustracion 250/300")),
-    (4, ("Vegetal / Rives")),
-    (5, ("auto-adhesivo ilustracion/obra")),
-    (5, ("auto-adhesivo + corte")),
-
-
+    ("a", "Obra 80"),
+    ("c", "Ilustracion 130"),
+    ("e", "Ilustracion 250/300"),
+    ("g", "Vegetal / Rives"),
+    ("h", "auto-adhesivo ilustracion/obra"),
+    ("i", "auto-adhesivo + corte"),
 )
 
+
+def traducir_soporte(material):
+    if material == "a":
+        material = "Obra 80"
+    elif material == "c":
+        material = "Ilustracion 130"
+    elif material == "e":
+        material = "Ilustracion 250/300"
+    elif material == "g":
+        material = "Vegetal / Rives"
+    elif material == "h":
+        material = "auto-adhesivo ilustracion/obra"
+    else:
+        material = "auto-adhesivo + corte"
+    return material
+
 CANTIDADES = (
-    (1, ("1 a 4")),
-    (2, ("5 a 10")),
-    (3, ("11 a 50")),
-    (4, ("51 a 100")),
-    (5, ("101 a 250")),
-    (5, ("251 a 500")),
+    ("1 a 4", 1),
+    ("5 a 10", 2),
+    ("11 a 50", 3),
+    ("51 a 100", 4),
+    ("101 a 250", 5),
+    ("251 a 500", 6),
 
 
 )
 
 HOJA = (
-    (1, ("Simple Faz")),
-    (2, ("Doble Faz")),
+    ("1", "Simple Faz"),
+    ("2", "Doble Faz"),
 )
 
+
+def traducir_cara(cara):
+    if cara == "1":
+        cara = "Simple Faz"
+    else:
+        cara = "Doble Faz"
+    return cara
+
+
 BYN = (
-    (1, ("Blanco y Negro")),
+    (True, "Blanco y Negro"),
 )
 
 
