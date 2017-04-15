@@ -1,0 +1,47 @@
+{% extends 'layouts/base.html' %}
+{% block title %}
+    Un Simple Formulario
+{% endblock %}
+{% block content %}
+    <div class="section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 text">
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Calcular Costo</h3>
+                        </div>
+                    </div>
+                    <div class="panel-body">
+                        <div class="container-fluid">
+                            <form role="form" action="" method="get">
+                                {% csrf_token %}
+                                {{ form.as_p }}
+                                <button type="submit">crear</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 text">
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Detalle</h3>
+                        </div>
+                    </div>
+                    <div class="panel-body">
+                        <h3>Hacer pedido de {{ form.data.cantidad }} copias</h3>
+
+                        <p>Papel {{ material }}</p>
+
+                        <p>Impresion {{ caras }} {{ form.data.byn }}</p>
+
+                        <h2>total: ${{ calcular }}</h2>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    </div>
+{% endblock %}
