@@ -12,10 +12,11 @@ class Cliente(models.Model):
     slug = models.SlugField(unique=True, blank=True)
 
     def __str__(self):
-        return str(self.nombre)
+        return str(self.apellido)
 
 
 class Ordenes(models.Model):
+    fecha = models.DateField
     tipo = models.IntegerField(choices=TIPO_TRABAJO)
     detalle = models.TextField(null=True)
     monto = models.DecimalField(max_digits=8, decimal_places=2, blank=True, null=True)

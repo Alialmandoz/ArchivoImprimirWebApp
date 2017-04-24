@@ -12,14 +12,19 @@
                             {{ cliente.nombre.title }} {{ cliente.apellido.title }}
                         </div>
                         <div class="panel-body">
-                            {{ cliente.direccion.title }} <br>
-                            {{ cliente.telefono.title }} <br>
-                            {{ cliente.mail.title }} <br>
-                            <div class="col-md-12">
-                                <a class="btn btn-primary btn-large"
-                                   href="{% url 'editarCliente' slug=cliente.slug %}">Editar</a>
-                                <a class="btn btn-primary btn-large" href="{% url 'crear_orden' %}">Crear Orden</a>
-                            </div>
+                            Direccion: {{ cliente.direccion.title }} <br>
+                            <br>
+                            Telefono: {{ cliente.telefono.title }} <br>
+                            <br>
+                            Email: {{ cliente.mail.title }} <br>
+                            <br>
+                            <a class="btn btn-primary btn-large" href="{% url 'crear_orden' slug=cliente.slug %}">Crear Orden</a>
+
+                            <br>
+                            <br>
+
+                            <a class="btn btn-primary btn-sm"
+                               href="{% url 'editarCliente' slug=cliente.slug %}">Editar</a
                         </div>
                     </div>
                 </div>
