@@ -5,3 +5,7 @@ AIVenv
 db.sqlite3
 /static
 .DS_Store
+/cliente/static/pdf/~$lista_clientes.xlsx
+/cliente/static/pdf/~$contactos.xlsx
+cliente/static/js/
+cliente/static/pdf/~$contactos.xlsx

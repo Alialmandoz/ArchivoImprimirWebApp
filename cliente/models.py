@@ -12,7 +12,7 @@ class Cliente(models.Model):
     slug = models.SlugField(unique=True, blank=True)
 
     def __str__(self):
-        return self.nombre + " " + self.apellido
+        return str(self.nombre)
 
 
 class Ordenes(models.Model):

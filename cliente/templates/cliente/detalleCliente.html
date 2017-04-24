@@ -2,42 +2,36 @@
 
 {% block title %}Detalle cliente - {{ block.super }}{% endblock %}
 {% block content %}
-
-
+    <body>
     <div class="section">
         <div class="container">
             <div class="row">
-                <div class="col-md-6">
-                    <div class="jumbotron text-center">
-                        <h1 class="text-left">{{ cliente.nombre.title }} {{ cliente.apellido.title }}</h1>
-                        <img src="static/images/buscar_cliente.png"
-                             class="img-responsive"></a>
-                        <a class="btn btn-primary btn-large"
-                           href="{% url 'editarCliente' slug=cliente.slug %}">Editar</a>
-                        <a class="btn btn-primary btn-large" href="{% url 'crear_orden' %}">Crear Orden</a>
+                <div class="col-md-4">
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">
+                            {{ cliente.nombre.title }} {{ cliente.apellido.title }}
+                        </div>
+                        <div class="panel-body">
+                            {{ cliente.direccion.title }} <br>
+                            {{ cliente.telefono.title }} <br>
+                            {{ cliente.mail.title }} <br>
+                            <div class="col-md-12">
+                                <a class="btn btn-primary btn-large"
+                                   href="{% url 'editarCliente' slug=cliente.slug %}">Editar</a>
+                                <a class="btn btn-primary btn-large" href="{% url 'crear_orden' %}">Crear Orden</a>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="col-md-6">
-                    <div class="jumbotron text-center">
-                        <table class="table">
-                            <thead>
-                            <tr>
-                                <th>orden</th>
-                                <th>detalle</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            {% for orden in ordenes %}
-                                <tr class="table-bordered">
-                                    {% if orden.cliente.slug == cliente.slug %}
-                                        <td>{{ orden.id }}</td>
-                                        <td>{{ orden.detalle }}</td>
-                                    {% endif %}
-                                </tr>
-                            {% endfor %}
-                            </tbody>
-                        </table>
-                    </div>
+                <div class="col-md-4">
+                    <ol>
+                        {% for orden in ordenes %}
+                            {% if orden.cliente.slug == cliente.slug %}
+                                 <a href="{% url 'orden' pk=orden.pk %}"> {{ orden.id }} : {{ orden.detalle }} </a>
+                                 <hr>
+                            {% endif %}
+                        {% endfor %}
+                    </ol>
                 </div>
             </div>
         </div>

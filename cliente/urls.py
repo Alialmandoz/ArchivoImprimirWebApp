@@ -11,6 +11,7 @@ urlpatterns = [
     url(r'^crear_orden/$', views.crear_orden, name='crear_orden'),
     url(r'^crear_cliente/$', views.crear_cliente, name='crear_cliente'),
     url(r'^calculador/$', views.calculador, name='calculador'),
+    url(r'^browse/(?P<letra>[-\w]+)/$', views.browse, name='browse'),
 
 
 ]

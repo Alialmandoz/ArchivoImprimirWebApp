@@ -1,21 +1,49 @@
-from django.shortcuts import render, get_object_or_404, redirect, get_list_or_404
+import string
+
+from django.shortcuts import get_object_or_404, redirect, get_list_or_404
 from django.template.defaultfilters import slugify
-
-
 from .models import Cliente, Ordenes
 from .forms import ClienteForm, OrdenForm, Calculador
 from cliente import choices
+from django.shortcuts import render
+
+
+def paginas(model):
+    todas_letras = 'abcdefghijklmnopqrstuvwxyz'
+    letras = []
+    for i in model:
+        for l in todas_letras:
+            list_does_contain = next((True for item in letras if item == l.lower()), False)
+            if i.apellido.lower().startswith(l.lower()) and not list_does_contain:
+                letras.append(str(l).lower())
+    return letras
 
 
 def index(request):
+    letra = 'a'
     a_buscar = request.GET.get('q')
-    clientes = Cliente.objects.all()
+    clientes = Cliente.objects.order_by('apellido')
+    letras = paginas(clientes)
     ordenes = Ordenes.objects.all()
     if a_buscar is not None:
         clientes = (get_list_or_404(Cliente, slug__icontains=a_buscar))
+        return render(request, 'cliente/index.html',
+                      {'clientes': clientes, 'ordenes': ordenes, 'letras': letras, 'letra': letra})
+    return render(request, 'cliente/index.html',
+                  {'clientes': clientes, 'ordenes': ordenes, 'letras': letras, 'letra': letra})
+
+
+def browse(request, letra):
+    clientes = Cliente.objects.order_by('apellido')
+    letras = paginas(clientes)
+    ordenes = Ordenes.objects.all()
+    if letra:
+        clientes = (get_list_or_404(Cliente, apellido__startswith=letra))
         ordenes = Ordenes.objects.all()
-        return render(request, 'cliente/index.html', {'clientes': clientes, 'ordenes': ordenes})
-    return render(request, 'cliente/index.html', {'clientes': clientes, 'ordenes': ordenes})
+        return render(request, 'cliente/index.html',
+                      {'clientes': clientes, 'ordenes': ordenes, 'letras': letras, 'letra': letra})
+    return render(request, 'cliente/index.html',
+                  {'clientes': clientes, 'ordenes': ordenes, 'letras': letras, 'letra': letra})
 
 
 def detalle_cliente(request, slug):
