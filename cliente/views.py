@@ -125,10 +125,14 @@ def detalle_orden(request, pk):
     return render(request, 'cliente/detalle_orden.html', {'orden': orden})
 
 
+def alerta_borrar_orden(request, pk):
+    orden = get_object_or_404(Ordenes, pk=pk)
+    return render(request, 'cliente/alerta_borrar_orden.html', {'orden': orden})
 
 
-
-
+def borrar_orden(request, pk):
+    orden = get_object_or_404(Ordenes, pk=pk).delete()
+    return redirect(index)
 
 
 def calculador(request):

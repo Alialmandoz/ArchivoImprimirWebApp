@@ -32,8 +32,12 @@ urlpatterns = [
     # editar la orden
     url(r'^orden/(?P<pk>[-\d]+)/edit/$', views.editar_orden, name='editarOrden'),
 
+    # alerta Borrar orden
+    url(r'^orden/(?P<pk>[-\w]+)/edit/alerta/$', views.alerta_borrar_orden, name='alertaBorrarOrden'),
+
+
     # borrar la orden
-    # url(r'^orden/(?P<pk>[-\d]+)/borrar/$', views.borrar_orden, name='borrarOrden'),
+    url(r'^orden/(?P<pk>[-\d]+)/borrar/$', views.borrar_orden, name='borrarOrden'),
 
     # calculadora de precios
     url(r'^calculador/$', views.calculador, name='calculador'),
