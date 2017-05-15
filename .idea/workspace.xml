@@ -2,12 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="74d63c7a-20cc-442d-835e-c83ae0de0f48" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cliente/templates/cliente/alerta_borrar_cliente.html" afterPath="$PROJECT_DIR$/cliente/templates/cliente/alerta_borrar_cliente.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cliente/templates/cliente/alerta_borrar_orden.html" afterPath="$PROJECT_DIR$/cliente/templates/cliente/alerta_borrar_orden.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cliente/templates/cliente/detalleCliente.html" afterPath="$PROJECT_DIR$/cliente/templates/cliente/detalleCliente.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cliente/templates/cliente/editarCliente.html" afterPath="$PROJECT_DIR$/cliente/templates/cliente/editarCliente.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cliente/templates/cliente/editarOrden.html" afterPath="$PROJECT_DIR$/cliente/templates/cliente/editarOrden.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cliente/management/commands/populate_db.py" afterPath="$PROJECT_DIR$/cliente/management/commands/populate_db.py" />
     </list>
     <ignored path="ArchivoImprimir.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -79,8 +74,8 @@
       <file leaf-file-name="detalleCliente.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/cliente/templates/cliente/detalleCliente.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="1.1732852" vertical-offset="0" max-vertical-offset="1275">
-              <caret line="26" column="92" selection-start-line="26" selection-start-column="92" selection-end-line="26" selection-end-column="92" />
+            <state vertical-scroll-proportion="0.5866426" vertical-offset="525" max-vertical-offset="1275">
+              <caret line="34" column="113" selection-start-line="34" selection-start-column="113" selection-end-line="34" selection-end-column="113" />
               <folding />
             </state>
           </provider>
@@ -1105,8 +1100,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/cliente/templates/cliente/detalleCliente.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.1732852" vertical-offset="0" max-vertical-offset="1275">
-          <caret line="26" column="92" selection-start-line="26" selection-start-column="92" selection-end-line="26" selection-end-column="92" />
+        <state vertical-scroll-proportion="0.5866426" vertical-offset="525" max-vertical-offset="1275">
+          <caret line="34" column="113" selection-start-line="34" selection-start-column="113" selection-end-line="34" selection-end-column="113" />
           <folding />
         </state>
       </provider>
