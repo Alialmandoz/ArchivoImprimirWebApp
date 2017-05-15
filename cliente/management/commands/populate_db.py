@@ -17,7 +17,7 @@ class Command(BaseCommand):
 
         load a num_clientes numbrer of Clientes instances in to the database
 
-        the data in collected from a xlsx file in the pdf static folder through
+        the data is collected from a xlsx file in the pdf static folder through
         openpyxl library.
 
         """

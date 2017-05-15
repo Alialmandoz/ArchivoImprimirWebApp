@@ -1,13 +1,28 @@
-<!DOCTYPE html>
-<html>
-<head lang="en">
-    <meta charset="UTF-8">
-    <title>Atencion</title>
-</head>
-<body>
-Realmente quiere borrar este cliente????
+{% extends 'layouts/base.html' %}
+{% block title %}
+    {{ block.super }} - Detalle Orden
+{% endblock %}
+{% block content %}
+    <div class="section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3"></div>
+                <div class="col-md-6 text">
+                    <div class="panel panel-danger">
+                        <div class="panel-heading">
+                            <h3 class="panel-title"><h3 style= "color: #ffff00 "><b>Realmente quiere borrar este Cliente????</b></h3>
+                        </div>
+                        <div class="panel-body">
+                                <h4 style= "color: red "  ><b>PELIGRO ESTA ACCION NO PUEDE SER DESHECHA</b></h4>
+                                <div class="text-center">
+                                    <a class="btn btn-danger text-center" href="{% url 'borrarCliente' cliente.slug %}">SI</a>
+                                    <a class="btn btn-danger text-center" href="{% url 'index' %}">NO</a>
+                                </div>
+                        </div>
 
-    <a href="{% url 'borrarCliente' cliente.slug %}">Si</a>
-    <a href="{% url 'index' %}">no</a>
-</body>
-</html>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
