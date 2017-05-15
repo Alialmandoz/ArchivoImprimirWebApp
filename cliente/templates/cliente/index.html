@@ -11,7 +11,7 @@
                         <form role="form" action="." method="get" accept-charset="utf-8">
                             <div class="form-group">
                                 <div class="input-group">
-                                    <input type="text" class="form-control" name="q" placeholder="Buscar Cliente"
+                                    <input type="text" id="id_buscador" class="form-control" name="busqueda" placeholder="Buscar Cliente"
                                            action=".">
                                           <span class="input-group-btn">
                                             <button class="btn btn-primary" type="submit">Buscar</button>
@@ -33,7 +33,7 @@
                 <div class="panel panel-primary">
                     <div class="panel-body" style="padding-left: 20%; padding-right: 20%">
 
-                        <table class="table table-bordered table-hover table-striped">
+                        <table class="table table-bordered table-hover table-striped" id="id_list_table">
                             <thead>
                             <tr>
                                 <td><strong>Nombre</strong></td>

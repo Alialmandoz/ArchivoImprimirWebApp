@@ -1,4 +1,3 @@
-import cliente
 from django.shortcuts import get_object_or_404, redirect, get_list_or_404
 from django.template.defaultfilters import slugify
 from .models import Cliente, Ordenes
@@ -20,7 +19,7 @@ def paginas(model):
 
 def index(request):
     letra = 'a'
-    a_buscar = request.GET.get('q')
+    a_buscar = request.GET.get('busqueda')
     clientes = Cliente.objects.order_by('apellido')
     letras = paginas(clientes)
     ordenes = Ordenes.objects.all()
@@ -65,15 +64,14 @@ def editar_cliente(request, slug):
     return render(request, 'Cliente/editarCliente.html', {'cliente': cliente, 'form': form})
 
 
-def buscar_cliente(request):
-    return render(request, 'cliente/buscar_cliente.html', {})
+def alerta(request, slug):
+    cliente = get_object_or_404(Cliente, slug=slug)
+    return render(request, 'cliente/alerta_borrar.html', {'cliente': cliente})
 
 
-def resultado(request):
-    a_buscar = request.GET.get('q')
-    clientes = (get_list_or_404(Cliente, slug__icontains=a_buscar))
-    ordenes = Ordenes.objects.all()
-    return render(request, 'cliente/resultado.html', {'clientes': clientes, 'ordenes': ordenes})
+def borrar_cliente(request, slug):
+    cliente = get_object_or_404(Cliente, slug=slug).delete()
+    return redirect(index)
 
 
 def detalle_orden(request, pk):
@@ -92,17 +90,6 @@ def crear_orden(request, slug):
             return redirect('orden', pk=ordencreada.pk)
         else:
             form = OrdenForm()
-    return render(request, 'cliente/crear_orden.html', {'form': form})
-
-
-def crear_orden2(request):
-    if request.method == "POST":
-        form = OrdenForm(request.POST or None)
-        if form.is_valid():
-            ordencreada = form.save()
-            return redirect('orden', pk=ordencreada.pk)
-    else:
-        form = OrdenForm()
     return render(request, 'cliente/crear_orden.html', {'form': form})
 
 
