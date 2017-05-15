@@ -43,11 +43,20 @@ def browse(request, letra):
     return render(request, 'cliente/index.html',
                   {'clientes': clientes, 'ordenes': ordenes, 'letras': letras, 'letra': letra})
 
+# ################################# cliente ######################################################## #
 
-def detalle_cliente(request, slug):
-    cliente = get_object_or_404(Cliente, slug=slug)
-    ordenes = Ordenes.objects.all()
-    return render(request, 'cliente/detalleCliente.html', {'cliente': cliente, 'ordenes': ordenes})
+
+def crear_cliente(request):
+    if request.method == "POST":
+        form = ClienteForm(request.POST or None)
+        if form.is_valid():
+            clientecreado = form.save(commit=False)
+            clientecreado.slug = slugify(clientecreado.nombre + '-' + clientecreado.apellido)
+            clientecreado = form.save()
+            return redirect('detalleCliente', slug=slugify(clientecreado.nombre + '-' + clientecreado.apellido))
+    else:
+        form = ClienteForm()
+    return render(request, 'cliente/crearcliente.html', {'form': form})
 
 
 def editar_cliente(request, slug):
@@ -64,19 +73,22 @@ def editar_cliente(request, slug):
     return render(request, 'Cliente/editarCliente.html', {'cliente': cliente, 'form': form})
 
 
-def alerta(request, slug):
+def detalle_cliente(request, slug):
     cliente = get_object_or_404(Cliente, slug=slug)
-    return render(request, 'cliente/alerta_borrar.html', {'cliente': cliente})
+    ordenes = Ordenes.objects.all()
+    return render(request, 'cliente/detalleCliente.html', {'cliente': cliente, 'ordenes': ordenes})
+
+
+def alerta_borrar_cliente(request, slug):
+    cliente = get_object_or_404(Cliente, slug=slug)
+    return render(request, 'cliente/alerta_borrar_cliente.html', {'cliente': cliente})
 
 
 def borrar_cliente(request, slug):
     cliente = get_object_or_404(Cliente, slug=slug).delete()
     return redirect(index)
 
-
-def detalle_orden(request, pk):
-    orden = get_object_or_404(Ordenes, pk=pk)
-    return render(request, 'cliente/detalle_orden.html', {'orden': orden})
+# ########################################### orden ###################################################### #
 
 
 def crear_orden(request, slug):
@@ -93,17 +105,30 @@ def crear_orden(request, slug):
     return render(request, 'cliente/crear_orden.html', {'form': form})
 
 
-def crear_cliente(request):
-    if request.method == "POST":
-        form = ClienteForm(request.POST or None)
+def editar_orden(request, pk):
+    orden = get_object_or_404(Ordenes, pk=pk)
+    form_class = OrdenForm
+
+    if request.method == 'POST':
+        form = form_class(data=request.POST or None, instance=orden)
         if form.is_valid():
-            clientecreado = form.save(commit=False)
-            clientecreado.slug = slugify(clientecreado.nombre + '-' + clientecreado.apellido)
-            clientecreado = form.save()
-            return redirect('detalleCliente', slug=slugify(clientecreado.nombre + '-' + clientecreado.apellido))
+            form.save()
+            return redirect('orden', orden.pk)
     else:
-        form = ClienteForm()
-    return render(request, 'cliente/crearcliente.html', {'form': form})
+        form = form_class(instance=orden)
+
+    return render(request, 'Cliente/editarOrden.html', {'orden': orden, 'form': form})
+
+
+def detalle_orden(request, pk):
+    orden = get_object_or_404(Ordenes, pk=pk)
+    return render(request, 'cliente/detalle_orden.html', {'orden': orden})
+
+
+
+
+
+
 
 
 def calculador(request):

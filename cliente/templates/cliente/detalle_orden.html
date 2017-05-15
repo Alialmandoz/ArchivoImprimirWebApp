@@ -16,11 +16,17 @@
 
                             <ul>Cliente: {{ orden.cliente }}</ul>
                             <ul>Tipo: {{ orden.get_tipo_display }}</ul>
-                            <ul>Tipo: {{ orden.detalle }}</ul>
+                            <ul>Detalle: {{ orden.detalle }}</ul>
                             <ul>Monto: {{ orden.monto }}</ul>
                             <ul>Entrega: {{ orden.entrega }}</ul>
                             <ul>Saldo: {{ orden.saldo }}</ul>
+
+                            <div class="text-center">
+                                <a class="btn btn-primary text-center"
+                                href="{% url 'editarOrden' pk=orden.pk %}">Editar</a>
+                            </div>
                         </div>
+
                     </div>
                 </div>
             </div>
