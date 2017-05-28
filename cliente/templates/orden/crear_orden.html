@@ -1,4 +1,5 @@
 {% extends 'layouts/base.html' %}
+
 {% block title %}
     Crear orden
 {% endblock %}
@@ -28,4 +29,9 @@
         </div>
     </div>
     </body>
+     <script>
+          $( function() {
+            $( "#fecha_entrega" ).datepicker();
+          } );
+      </script>
 {% endblock %}

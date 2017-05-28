@@ -13,9 +13,10 @@
                         </div>
                         <div class="panel-body">
 
-                            fecha de esntrega: {{ orden.fecha_entrega }}
+                            <ul>fecha de entrega: {{ orden.fecha_entrega }}</ul>
                             {% for trabajo in trabajos %}
-                                <ul>{{ trabajo }}</ul>
+                                <ul>
+                                    <a href="{% url 'trabajo' pk=trabajo.pk %}"> {{ trabajo }} </a></ul>
                             {% endfor %}
                             <div class="text-center">
                                 <a class="btn btn-primary text-center"

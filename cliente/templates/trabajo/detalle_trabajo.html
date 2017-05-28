@@ -1,6 +1,6 @@
 {% extends 'layouts/base.html' %}
 {% block title %}
-    {{ block.super }} - Detalle Orden
+    {{ block.super }} - Detalle Trabajo
 {% endblock %}
 {% block content %}
     <div class="section">
@@ -10,20 +10,18 @@
                 <div class="col-md-4 text">
                     <div class="panel panel-primary">
                         <div class="panel-heading">
-                            <h3 class="panel-title"> Detalle orden {{ orden.pk }}</h3>
+                            <h3 class="panel-title"> Detalle tarbajo {{ trabajo.pk }}</h3>
                         </div>
                         <div class="panel-body">
-
-                            <ul>Cliente: {{ orden.cliente }}</ul>
-                            <ul>Tipo: {{ orden.get_tipo_display }}</ul>
-                            <ul>Detalle: {{ orden.detalle }}</ul>
-                            <ul>Monto: {{ orden.monto }}</ul>
-                            <ul>Entrega: {{ orden.entrega }}</ul>
-                            <ul>Saldo: {{ orden.saldo }}</ul>
+                            <ul>Tipo: {{ trabajo.get_tipo_display }}</ul>
+                            <ul>Detalle: {{ trabajo.detalle }}</ul>
+                            <ul>Monto: {{ trabajo.monto }}</ul>
+                            <ul>Entrega: {{ trabajo.entrega }}</ul>
+                            <ul>Saldo: {{ trabajo.saldo }}</ul>
 
                             <div class="text-center">
                                 <a class="btn btn-primary text-center"
-                                href="{% url 'editarOrden' pk=orden.pk %}">Editar</a>
+                                href="{% url 'editar_trabajo' pk=trabajo.pk %}">Editar</a>
                             </div>
                         </div>
 

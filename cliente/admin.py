@@ -1,10 +1,11 @@
 from django.contrib import admin
-from .models import Cliente
-from .models import Ordenes
+from .models import Ordenes, Trabajo, Cliente
+
 
 class OrdenesInline(admin.TabularInline):
     model = Ordenes
     extra = 0
+
 
 class ClienteAdmin(admin.ModelAdmin):
     model = Cliente
@@ -23,3 +24,11 @@ class OrdenAdmin(admin.ModelAdmin):
 # Register your models here.
 admin.site.register(Ordenes, OrdenAdmin)
 
+
+class TrabajoAdmin(admin.ModelAdmin):
+    model = Trabajo
+    list_display = ('pk', 'tipo', 'detalle', 'monto', 'adelanto', 'saldo', 'orden',)
+
+
+# Register your models here.
+admin.site.register(Trabajo, TrabajoAdmin)

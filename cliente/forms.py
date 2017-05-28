@@ -1,7 +1,8 @@
 from cliente.choices import *
-from django.forms import ModelForm
+from django.forms import ModelForm, SelectDateWidget
 import datetime
-from django.forms.extras.widgets import SelectDateWidget
+from django.contrib.admin.widgets import AdminDateWidget
+# from django.forms.extras.widgets import SelectDateWidget,
 from django import forms
 
 from openpyxl import *
@@ -21,7 +22,10 @@ class OrdenForm(ModelForm):
 
     class Meta:
         model = Ordenes
-        fields = ()
+        fields = ('fecha_entrega',)
+
+        def __init__(self):
+            self.fields('fecha_entrega',)
 
 
 class TrabajoForm(ModelForm):
