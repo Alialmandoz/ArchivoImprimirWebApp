@@ -32,7 +32,8 @@
                     <ol>
                         {% for orden in ordenes %}
                             {% if orden.cliente.slug == cliente.slug %}
-                                 <a href="{% url 'orden' pk=orden.pk %}"> {{ orden.id }} : {{ orden.detalle|title }} </a>
+                                 <a href="{% url 'orden' pk=orden.pk %}"> {{ orden.id }} :
+                                     encargo {{ orden.fecha_encargo|title }} entrega: {{ orden.fecha_entrega|title }} </a>
                                  <hr>
                             {% endif %}
                         {% endfor %}

@@ -18,7 +18,7 @@ admin.site.register(Cliente, ClienteAdmin)
 
 class OrdenAdmin(admin.ModelAdmin):
     model = Ordenes
-    list_display = ('cliente', 'monto', 'tipo',)
+    list_display = ('cliente', 'fecha_encargo', 'fecha_entrega')
 
 # Register your models here.
 admin.site.register(Ordenes, OrdenAdmin)

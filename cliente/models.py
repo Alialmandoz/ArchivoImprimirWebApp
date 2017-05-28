@@ -1,6 +1,8 @@
 from .choices import *
+from django.contrib.admin.widgets import AdminDateWidget
 from django.db import models
 from django.db.models import DecimalField
+from django.utils.datetime_safe import datetime
 
 
 class Cliente(models.Model):
@@ -16,13 +18,21 @@ class Cliente(models.Model):
 
 
 class Ordenes(models.Model):
-    fecha = models.DateField
-    tipo = models.IntegerField(choices=TIPO_TRABAJO)
-    detalle = models.TextField(null=True)
-    monto = models.DecimalField(max_digits=8, decimal_places=2, blank=True, null=True)
-    entrega = DecimalField(max_digits=8, decimal_places=2, blank=True, null=True)
-    saldo = DecimalField(max_digits=8, decimal_places=2, blank=True, null=True)
+    fecha_encargo = models.DateField(default=datetime.now, blank=True)
+    fecha_entrega = models.DateField(default=datetime.now, blank=True)
     cliente = models.ForeignKey(Cliente, on_delete=models.CASCADE)
 
     def __str__(self):
-        return str(self.get_tipo_display()) + " " + str(self.monto)
+        return str(self.cliente) + " " + str(self.fecha_entrega)
+
+
+class Trabajo(models.Model):
+    tipo = models.IntegerField(choices=TIPO_TRABAJO)
+    detalle = models.TextField(null=True)
+    monto = models.DecimalField(max_digits=8, decimal_places=2, blank=True, null=True)
+    adelanto = DecimalField(max_digits=8, decimal_places=2, blank=True, null=True)
+    saldo = DecimalField(max_digits=8, decimal_places=2, blank=True, null=True)
+    orden = models.ForeignKey(Ordenes, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return str(self.get_tipo_display()) + " $" + str(self.monto)

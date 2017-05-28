@@ -1,7 +1,7 @@
 from django.shortcuts import get_object_or_404, redirect, get_list_or_404
 from django.template.defaultfilters import slugify
-from .models import Cliente, Ordenes
-from .forms import ClienteForm, OrdenForm, Calculador
+from .models import Cliente, Ordenes, Trabajo
+from .forms import ClienteForm, OrdenForm, Calculador, TrabajoForm
 from cliente import choices
 from django.shortcuts import render
 
@@ -43,6 +43,7 @@ def browse(request, letra):
     return render(request, 'cliente/index.html',
                   {'clientes': clientes, 'ordenes': ordenes, 'letras': letras, 'letra': letra})
 
+
 # ################################# cliente ######################################################## #
 
 
@@ -56,7 +57,7 @@ def crear_cliente(request):
             return redirect('detalleCliente', slug=slugify(clientecreado.nombre + '-' + clientecreado.apellido))
     else:
         form = ClienteForm()
-    return render(request, 'cliente/crearcliente.html', {'form': form})
+    return render(request, 'cliente/crear_cliente.html', {'form': form})
 
 
 def editar_cliente(request, slug):
@@ -70,13 +71,13 @@ def editar_cliente(request, slug):
     else:
         form = form_class(instance=cliente)
 
-    return render(request, 'Cliente/editarCliente.html', {'cliente': cliente, 'form': form})
+    return render(request, 'Cliente/editar_cliente.html', {'cliente': cliente, 'form': form})
 
 
 def detalle_cliente(request, slug):
     cliente = get_object_or_404(Cliente, slug=slug)
     ordenes = Ordenes.objects.all()
-    return render(request, 'cliente/detalleCliente.html', {'cliente': cliente, 'ordenes': ordenes})
+    return render(request, 'cliente/detalle_cliente.html', {'cliente': cliente, 'ordenes': ordenes})
 
 
 def alerta_borrar_cliente(request, slug):
@@ -87,6 +88,7 @@ def alerta_borrar_cliente(request, slug):
 def borrar_cliente(request, slug):
     cliente = get_object_or_404(Cliente, slug=slug).delete()
     return redirect(index)
+
 
 # ########################################### orden ###################################################### #
 
@@ -102,7 +104,7 @@ def crear_orden(request, slug):
             return redirect('orden', pk=ordencreada.pk)
         else:
             form = OrdenForm()
-    return render(request, 'cliente/crear_orden.html', {'form': form})
+    return render(request, 'orden/crear_orden.html', {'form': form})
 
 
 def editar_orden(request, pk):
@@ -117,21 +119,78 @@ def editar_orden(request, pk):
     else:
         form = form_class(instance=orden)
 
-    return render(request, 'Cliente/editarOrden.html', {'orden': orden, 'form': form})
+    return render(request, 'orden/editar_orden.html', {'orden': orden, 'form': form})
 
 
 def detalle_orden(request, pk):
     orden = get_object_or_404(Ordenes, pk=pk)
-    return render(request, 'cliente/detalle_orden.html', {'orden': orden})
+    trabajos = orden.trabajo_set.all()
+    form = TrabajoForm(request.POST or None)
+    if request.method == "POST":
+        if form.is_valid():
+            trabajo_creado = form.save(commit=False)
+            trabajo_creado.orden = orden
+            trabajo_creado = form.save()
+            return redirect('orden', pk=orden.pk)
+        else:
+            form = TrabajoForm()
+    return render(request, 'orden/detalle_orden.html', {'orden': orden, 'trabajos': trabajos, 'form': form})
 
 
 def alerta_borrar_orden(request, pk):
     orden = get_object_or_404(Ordenes, pk=pk)
-    return render(request, 'cliente/alerta_borrar_orden.html', {'orden': orden})
+    return render(request, 'orden/alerta_borrar_orden.html', {'orden': orden})
 
 
 def borrar_orden(request, pk):
     orden = get_object_or_404(Ordenes, pk=pk).delete()
+    return redirect(index)
+
+
+# ########################################### trabajo ###################################################### #
+
+
+def crear_trabajo(request, pk):
+    form = TrabajoForm(request.POST or None)
+    if request.method == "POST":
+        orden = Ordenes.objects.get(pk=pk)
+        if form.is_valid():
+            trabajocreado = form.save(commit=False)
+            trabajocreado.orden = orden
+            trabajocreado = form.save()
+            return redirect('orden', pk=orden.pk)
+        else:
+            form = TrabajoForm()
+    return render(request, 'trabajo/crear_trabajo.html', {'form': form})
+
+
+def editar_trabajo(request, pk):
+    trabajo = get_object_or_404(Trabajo, pk=pk)
+    form_class = TrabajoForm
+
+    if request.method == 'POST':
+        form = form_class(data=request.POST or None, instance=trabajo)
+        if form.is_valid():
+            form.save()
+            return redirect('trabajo', trabajo.pk)
+    else:
+        form = form_class(instance=trabajo)
+
+    return render(request, 'trabajo/editar_trabajo.html', {'trabajo': trabajo, 'form': form})
+
+
+def detalle_trabajo(request, pk):
+    trabajo = get_object_or_404(Trabajo, pk=pk)
+    return render(request, 'trabajo/detalle_trabajo.html', {'trabajo': trabajo})
+
+
+def alerta_borrar_trabajo(request, pk):
+    trabajo = get_object_or_404(Trabajo, pk=pk)
+    return render(request, 'trabajo/alerta_borrar_trabajo.html', {'trabajo': trabajo})
+
+
+def borrar_trabajo(request, pk):
+    trabajo = get_object_or_404(Trabajo, pk=pk).delete()
     return redirect(index)
 
 

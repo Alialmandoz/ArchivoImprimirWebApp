@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="dataSourceStorageLocal">
-    <data-source name="Django default" uuid="10ea8bdc-7567-4ef6-889b-dafe2407a3ca" />
+    <data-source name="SQLite -" uuid="13f3285b-b500-4dbd-ac6d-e052909e1ba6">
+      <secret-storage>master_key</secret-storage>
+    </data-source>
   </component>
 </project>

@@ -1,0 +1,49 @@
+{% extends 'layouts/base.html' %}
+{% block title %}
+    {{ block.super }} - Detalle Orden
+{% endblock %}
+{% block content %}
+    <div class="section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">
+                            <h3 class="panel-title"> Detalle orden {{ orden.pk }}</h3>
+                        </div>
+                        <div class="panel-body">
+
+                            fecha de esntrega: {{ orden.fecha_entrega }}
+                            {% for trabajo in trabajos %}
+                                <ul>{{ trabajo }}</ul>
+                            {% endfor %}
+                            <div class="text-center">
+                                <a class="btn btn-primary text-center"
+                                   href="{% url 'editarOrden' pk=orden.pk %}">Editar</a>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="panel panel-primary">
+                            <div class="panel-heading">
+                                <h3 class="panel-title"> Agregar Trabajo</h3>
+                        </div>
+                            <div class="panel-body">
+                                <form role="form" method="post">
+                                    {% csrf_token %}
+                                    {{ form.as_p }}
+                                    <div>
+                                        <button class="btn btn-primary text-center" type="submit">crear</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+
+                </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

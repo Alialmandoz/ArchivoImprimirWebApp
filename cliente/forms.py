@@ -1,23 +1,33 @@
 from cliente.choices import *
 from django.forms import ModelForm
-
+import datetime
+from django.forms.extras.widgets import SelectDateWidget
 from django import forms
 
 from openpyxl import *
 
-from cliente.models import Cliente, Ordenes
+from cliente.models import Cliente, Ordenes, Trabajo
 
 
 class ClienteForm(ModelForm):
     class Meta:
         model = Cliente
-        fields = ('nombre', 'apellido', 'mail', 'telefono', 'direccion',)
+        fields = ('nombre', 'apellido', 'mail', 'telefono', 'direccion')
 
 
 class OrdenForm(ModelForm):
+    fecha_encargo = datetime.date.today
+    fecha_entrega = forms.DateField(widget=SelectDateWidget(), initial=datetime.date.today)
+
     class Meta:
         model = Ordenes
-        fields = ('detalle', 'tipo', 'monto', 'entrega', 'saldo')
+        fields = ()
+
+
+class TrabajoForm(ModelForm):
+    class Meta:
+        model = Trabajo
+        fields = ('tipo', 'detalle', 'monto', 'adelanto', 'saldo')
 
 
 class Calculador(forms.Form):
