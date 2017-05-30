@@ -5,8 +5,14 @@ from .forms import ClienteForm, OrdenForm, Calculador, TrabajoForm
 from cliente import choices
 from django.shortcuts import render
 
+# ################################# login ######################################################## #
+
+# ################################# Inicio ######################################################## #
+
 
 def paginas(model):
+    model
+
     todas_letras = 'abcdefghijklmnopqrstuvwxyz'
     letras = []
     for i in model:
@@ -23,12 +29,14 @@ def index(request):
     clientes = Cliente.objects.order_by('apellido')
     letras = paginas(clientes)
     ordenes = Ordenes.objects.all()
-    if a_buscar is not None:
-        clientes = (get_list_or_404(Cliente, slug__icontains=a_buscar))
-        return render(request, 'cliente/index.html',
+    if request.user.is_authenticated:
+        if a_buscar is not None:
+            clientes = (get_list_or_404(Cliente, slug__icontains=a_buscar))
+            return render(request, 'cliente/index.html',
                       {'clientes': clientes, 'ordenes': ordenes, 'letras': letras, 'letra': letra})
-    return render(request, 'cliente/index.html',
+        return render(request, 'cliente/index.html',
                   {'clientes': clientes, 'ordenes': ordenes, 'letras': letras, 'letra': letra})
+    return redirect('login')
 
 
 def browse(request, letra):
@@ -52,8 +60,10 @@ def crear_cliente(request):
         form = ClienteForm(request.POST or None)
         if form.is_valid():
             clientecreado = form.save(commit=False)
+            clientecreado.apellido = str(clientecreado.apellido).capitalize()
             clientecreado.slug = slugify(clientecreado.nombre + '-' + clientecreado.apellido)
             clientecreado = form.save()
+            print('el apellido es: ' + clientecreado.apellido)
             return redirect('detalleCliente', slug=slugify(clientecreado.nombre + '-' + clientecreado.apellido))
     else:
         form = ClienteForm()

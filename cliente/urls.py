@@ -3,7 +3,7 @@ from . import views
 
 urlpatterns = [
     # inicio
-    url(r'^$', views.index, name='index'),
+    url(r'^inicio$', views.index, name='index'),
 
     # resultado busqueda por letra
     url(r'^browse/(?P<letra>[-\w]+)/$', views.browse, name='browse'),
