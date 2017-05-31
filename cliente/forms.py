@@ -18,7 +18,7 @@ class ClienteForm(ModelForm):
 
 class OrdenForm(ModelForm):
     fecha_encargo = datetime.date.today
-    fecha_entrega = forms.DateField(widget=SelectDateWidget(), initial=datetime.date.today)
+    fecha_entrega = forms.DateField(widget=SelectDateWidget(), initial=datetime.date.today() + datetime.timedelta(days=1))
 
     class Meta:
         model = Ordenes
