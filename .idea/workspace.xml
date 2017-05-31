@@ -2,9 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="74d63c7a-20cc-442d-835e-c83ae0de0f48" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cliente/templates/cliente/index.html" afterPath="$PROJECT_DIR$/cliente/templates/cliente/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cliente/views.py" afterPath="$PROJECT_DIR$/cliente/views.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cliente/templates/layouts/base.html" afterPath="$PROJECT_DIR$/cliente/templates/layouts/base.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cliente/templates/trabajo/detalle_trabajo.html" afterPath="$PROJECT_DIR$/cliente/templates/trabajo/detalle_trabajo.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cliente/templates/registration/login.html" afterPath="$PROJECT_DIR$/cliente/templates/registration/login.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ArchivoImprimir/settings.py" afterPath="$PROJECT_DIR$/ArchivoImprimir/settings.py" />
     </list>
     <ignored path="ArchivoImprimir.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -55,23 +56,41 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/cliente/views.py">
+      <file leaf-file-name="logged_out.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/cliente/templates/registration/logged_out.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="600" max-vertical-offset="5875">
-              <caret line="136" column="38" selection-start-line="136" selection-start-column="38" selection-end-line="136" selection-end-column="38" />
-              <folding>
-                <element signature="e#0#73#0" expanded="true" />
-              </folding>
+            <state vertical-scroll-proportion="-6.4814816" vertical-offset="0" max-vertical-offset="375">
+              <caret line="7" column="8" selection-start-line="7" selection-start-column="8" selection-end-line="7" selection-end-column="8" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/cliente/templates/cliente/index.html">
+      <file leaf-file-name="login.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/cliente/templates/registration/login.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.38628158" vertical-offset="36" max-vertical-offset="1800">
-              <caret line="10" column="63" selection-start-line="10" selection-start-column="49" selection-end-line="10" selection-end-column="63" />
+            <state vertical-scroll-proportion="-19.148148" vertical-offset="58" max-vertical-offset="850">
+              <caret line="23" column="34" selection-start-line="23" selection-start-column="34" selection-end-line="23" selection-end-column="34" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="base.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/cliente/templates/layouts/base.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-20.37037" vertical-offset="325" max-vertical-offset="1375">
+              <caret line="35" column="17" selection-start-line="35" selection-start-column="17" selection-end-line="35" selection-end-column="17" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="settings.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/ArchivoImprimir/settings.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.6212121" vertical-offset="2581" max-vertical-offset="3425">
+              <caret line="118" column="0" selection-start-line="118" selection-start-column="0" selection-end-line="118" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -123,19 +142,19 @@
         <option value="$PROJECT_DIR$/cliente/templates/trabajo/editar_trabajo.html" />
         <option value="$PROJECT_DIR$/cliente/admin.py" />
         <option value="$PROJECT_DIR$/cliente/templates/orden/detalle_orden.html" />
-        <option value="$PROJECT_DIR$/cliente/templates/trabajo/detalle_trabajo.html" />
         <option value="$PROJECT_DIR$/cliente/models.py" />
         <option value="$PROJECT_DIR$/cliente/forms.py" />
         <option value="$PROJECT_DIR$/cliente/templates/orden/crear_orden.html" />
         <option value="$PROJECT_DIR$/ArchivoImprimir/registration/login.html" />
-        <option value="$PROJECT_DIR$/cliente/templates/registration/login.html" />
-        <option value="$PROJECT_DIR$/ArchivoImprimir/settings.py" />
         <option value="$PROJECT_DIR$/cliente/urls.py" />
         <option value="$PROJECT_DIR$/ArchivoImprimir/urls.py" />
         <option value="$PROJECT_DIR$/cliente/templates/registration/logged_out.html" />
-        <option value="$PROJECT_DIR$/cliente/templates/layouts/base.html" />
         <option value="$PROJECT_DIR$/cliente/views.py" />
         <option value="$PROJECT_DIR$/cliente/templates/cliente/index.html" />
+        <option value="$PROJECT_DIR$/cliente/templates/trabajo/detalle_trabajo.html" />
+        <option value="$PROJECT_DIR$/cliente/templates/registration/login.html" />
+        <option value="$PROJECT_DIR$/cliente/templates/layouts/base.html" />
+        <option value="$PROJECT_DIR$/ArchivoImprimir/settings.py" />
       </list>
     </option>
   </component>
@@ -261,7 +280,29 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="registration" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ArchivoImprimir" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ArchivoImprimir" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="cliente" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="templates" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="layouts" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -695,7 +736,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
+    <frame x="-8" y="-8" width="1382" height="754" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.051446944" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -990,13 +1031,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/cliente/templates/trabajo/detalle_trabajo.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.08818342" vertical-offset="0" max-vertical-offset="950">
-          <caret line="2" column="4" selection-start-line="2" selection-start-column="4" selection-end-line="2" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
     <entry file="dbDummy://dbtable:/702212e8/13f3285b-b500-4dbd-ac6d-e052909e1ba6/..cliente_ordenes">
       <provider editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="150">
@@ -1020,16 +1054,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="594">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cliente/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="256" max-vertical-offset="1075">
-          <caret line="21" column="37" selection-start-line="21" selection-start-column="37" selection-end-line="21" selection-end-column="58" />
-          <folding>
-            <element signature="e#0#22#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1063,45 +1087,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/cliente/templates/registration/logged_out.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="175" max-vertical-offset="375">
-          <caret line="7" column="8" selection-start-line="7" selection-start-column="8" selection-end-line="7" selection-end-column="8" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ArchivoImprimir/urls.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="81" max-vertical-offset="775">
           <caret line="20" column="11" selection-start-line="20" selection-start-column="11" selection-end-line="20" selection-end-column="11" />
           <folding>
-            <element signature="e#649#700#0" expanded="true" />
+            <element signature="e#649#700#0" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cliente/templates/layouts/base.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.9476534" vertical-offset="650" max-vertical-offset="1450">
-          <caret line="47" column="0" selection-start-line="47" selection-start-column="0" selection-end-line="47" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cliente/templates/registration/login.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="567">
-          <caret line="0" column="30" selection-start-line="0" selection-start-column="30" selection-end-line="0" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ArchivoImprimir/settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="2.6835017" vertical-offset="1206" max-vertical-offset="3350">
-          <caret line="112" column="23" selection-start-line="112" selection-start-column="23" selection-end-line="112" selection-end-column="23" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1129,9 +1121,35 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/cliente/templates/cliente/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.38628158" vertical-offset="36" max-vertical-offset="1800">
+          <caret line="10" column="63" selection-start-line="10" selection-start-column="49" selection-end-line="10" selection-end-column="63" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cliente/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="481" max-vertical-offset="1075">
+          <caret line="32" column="12" selection-start-line="32" selection-start-column="4" selection-end-line="32" selection-end-column="12" />
+          <folding>
+            <element signature="e#0#22#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cliente/templates/trabajo/detalle_trabajo.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.66137564" vertical-offset="75" max-vertical-offset="950">
+          <caret line="18" column="60" selection-start-line="18" selection-start-column="60" selection-end-line="18" selection-end-column="60" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/cliente/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="600" max-vertical-offset="5875">
+        <state vertical-scroll-proportion="4.8192773" vertical-offset="600" max-vertical-offset="5875">
           <caret line="136" column="38" selection-start-line="136" selection-start-column="38" selection-end-line="136" selection-end-column="38" />
           <folding>
             <element signature="e#0#73#0" expanded="true" />
@@ -1139,10 +1157,34 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/cliente/templates/cliente/index.html">
+    <entry file="file://$PROJECT_DIR$/cliente/templates/registration/logged_out.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.38628158" vertical-offset="36" max-vertical-offset="1800">
-          <caret line="10" column="63" selection-start-line="10" selection-start-column="49" selection-end-line="10" selection-end-column="63" />
+        <state vertical-scroll-proportion="-6.4814816" vertical-offset="0" max-vertical-offset="375">
+          <caret line="7" column="8" selection-start-line="7" selection-start-column="8" selection-end-line="7" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cliente/templates/registration/login.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-19.148148" vertical-offset="58" max-vertical-offset="850">
+          <caret line="23" column="34" selection-start-line="23" selection-start-column="34" selection-end-line="23" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cliente/templates/layouts/base.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-20.37037" vertical-offset="325" max-vertical-offset="1375">
+          <caret line="35" column="17" selection-start-line="35" selection-start-column="17" selection-end-line="35" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ArchivoImprimir/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.6212121" vertical-offset="2581" max-vertical-offset="3425">
+          <caret line="118" column="0" selection-start-line="118" selection-start-column="0" selection-end-line="118" selection-end-column="0" />
           <folding />
         </state>
       </provider>
