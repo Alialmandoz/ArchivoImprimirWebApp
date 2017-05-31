@@ -1,9 +1,11 @@
 from django.shortcuts import get_object_or_404, redirect, get_list_or_404
 from django.template.defaultfilters import slugify
+from django.shortcuts import render
+
 from .models import Cliente, Ordenes, Trabajo
 from .forms import ClienteForm, OrdenForm, Calculador, TrabajoForm
 from cliente import choices
-from django.shortcuts import render
+
 
 # ################################# login ######################################################## #
 
@@ -11,8 +13,6 @@ from django.shortcuts import render
 
 
 def paginas(model):
-    model
-
     todas_letras = 'abcdefghijklmnopqrstuvwxyz'
     letras = []
     for i in model:
@@ -33,9 +33,9 @@ def index(request):
         if a_buscar is not None:
             clientes = (get_list_or_404(Cliente, slug__icontains=a_buscar))
             return render(request, 'cliente/index.html',
-                      {'clientes': clientes, 'ordenes': ordenes, 'letras': letras, 'letra': letra})
+                          {'clientes': clientes, 'ordenes': ordenes, 'letras': letras, 'letra': letra})
         return render(request, 'cliente/index.html',
-                  {'clientes': clientes, 'ordenes': ordenes, 'letras': letras, 'letra': letra})
+                      {'clientes': clientes, 'ordenes': ordenes, 'letras': letras, 'letra': letra})
     return redirect('login')
 
 
