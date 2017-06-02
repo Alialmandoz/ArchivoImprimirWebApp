@@ -1,0 +1,90 @@
+{% extends 'layouts/base.html' %}
+
+{% block title %}
+    Buscar orden
+{% endblock %}
+{% block content %}
+    <body>
+    <div class="section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Detalles de la busqueda</h3>
+                        </div>
+                        <div class="panel-body">
+                            <form role="form" action="" method="post">
+                            {% csrf_token %}
+                            {% for field in form %}
+                                <div id="{{ field.auto_id }}_container">
+                                    {{ field.help_text }}
+                                    <div>
+                                        <span class="col-md-6">{{ field.label_tag }}</span>
+                                        <span class="col-md-12">{{ field }}</span>
+                                    </div>
+                                    <div id="{{ field.auto_id }}_errors">
+                                        {{ field.errors }}
+                                    </div>
+                                </div>
+                            {% endfor %}
+                           <span class="col-md-8">
+                               <button type="submit" class="btn btn-default btn-lg" name="busqueda">buscar</button>
+                           </span>
+                        </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-8">
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">resultados de la busqueda</h3>
+                        </div>
+                        <div class="panel-body">
+                            <table class="table table-bordered table-hover table-striped">
+                                <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Cliente</th>
+                                    <th>fecha encargo</th>
+                                    <th>trabajos</th>
+                                    <th>fecha entrega</th>
+                                </tr>
+                                </thead>
+                                {% for i in ordenes %}
+                                    <tbody>
+                                    <tr>
+                                        {#id orden#}
+                                        <td>{{ i.id }}</td>
+
+                                        {#cliente orden#}
+                                        <td>{{ i.cliente }}</td>
+
+                                        {#fecha encargo  orden#}
+                                        <td>{{ i.fecha_encargo }}</td>
+
+                                        {#trabajos en la   orden#}
+                                        <td>
+                                            {% for trabajo in trabajos %}
+                                                {% if trabajo.orden.id == i.id %}
+                                                    <a href="{% url 'trabajo' pk=trabajo.pk %}">
+                                                        trabajo {{ trabajo.id }}: {{ trabajo.detalle }}</a><br>
+                                                {% endif %}
+                                            {% endfor %}
+                                        </td>
+
+                                        {#fecha entrega  orden#}
+                                        <td>{{ i.fecha_entrega }}</td>
+                                    </tr>
+                                    </tbody>
+                                {% endfor %}
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    </body>
+{% endblock %}

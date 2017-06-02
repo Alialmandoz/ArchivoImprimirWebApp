@@ -1,9 +1,10 @@
 from django.shortcuts import get_object_or_404, redirect, get_list_or_404
+import datetime
 from django.template.defaultfilters import slugify
 from django.shortcuts import render
 
 from .models import Cliente, Ordenes, Trabajo
-from .forms import ClienteForm, OrdenForm, Calculador, TrabajoForm
+from .forms import ClienteForm, OrdenForm, Calculador, TrabajoForm, BuscarOrdenForm
 from cliente import choices
 
 
@@ -130,6 +131,31 @@ def editar_orden(request, pk):
         form = form_class(instance=orden)
 
     return render(request, 'orden/editar_orden.html', {'orden': orden, 'form': form})
+
+
+def buscar_ordenes(request):
+    trabajos = Trabajo.objects.all()
+    form = BuscarOrdenForm(request.POST or None)
+    day1 = request.POST.get('fecha1_day')
+    month1 = request.POST.get('fecha1_month')
+    year1 = request.POST.get('fecha1_year')
+    day2 = request.POST.get('fecha2_day')
+    month2 = request.POST.get('fecha2_month')
+    year2 = request.POST.get('fecha2_year')
+
+    test = year1
+
+    if form.is_valid():
+        if request.method == "POST":
+            ordenes = Ordenes.objects.filter(fecha_encargo__gte=datetime.date(int(year1), int(month1), int(day1)),
+                                             fecha_encargo__lte=datetime.date(int(year2), int(month2), int(day2)))
+            print('antes: ' + str(ordenes))
+            return render(request, 'orden/buscar_ordenes.html', {'ordenes': ordenes, 'trabajos': trabajos, 'form': form})
+
+    else:
+        ordenes = Ordenes.objects.all()
+        print('despues: ' + str(ordenes))
+        return render(request, 'orden/buscar_ordenes.html', {'ordenes': ordenes, 'trabajos': trabajos, 'form': form})
 
 
 def detalle_orden(request, pk):

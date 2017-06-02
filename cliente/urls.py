@@ -36,6 +36,9 @@ urlpatterns = [
     # editar la orden
     url(r'^orden/(?P<pk>[-\d]+)/edit/$', views.editar_orden, name='editarOrden'),
 
+    # buscar la orden
+    url(r'^orden/buscar/$', views.buscar_ordenes, name='buscar_ordenes'),
+
     # alerta Borrar orden
     url(r'^orden/(?P<pk>[-\d]+)/edit/alerta/$', views.alerta_borrar_orden, name='alertaBorrarOrden'),
 
