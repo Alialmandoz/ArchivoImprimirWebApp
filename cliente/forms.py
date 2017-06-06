@@ -15,15 +15,16 @@ class ClienteForm(ModelForm):
 
 
 class OrdenForm(ModelForm):
-    fecha_encargo = datetime.date.today
-    fecha_entrega = forms.DateField(widget=SelectDateWidget(), initial=datetime.date.today() + datetime.timedelta(days=1))
+    fecha_encargo = forms.DateField(widget=SelectDateWidget(), initial=datetime.date.today())
+    fecha_entrega = forms.DateField(widget=SelectDateWidget(),
+                                    initial=datetime.date.today() + datetime.timedelta(days=1))
 
     class Meta:
         model = Ordenes
-        fields = ('fecha_entrega',)
+        fields = ('fecha_encargo', 'fecha_entrega',)
 
         def __init__(self):
-            self.fields('fecha_entrega',)
+            self.fields('fecha_encargo', 'fecha_entrega',)
 
 
 class TrabajoForm(ModelForm):
@@ -61,11 +62,6 @@ class Calculador(forms.Form):
 
 
 class BuscarOrdenForm(forms.Form):
-    # cliente = forms.CharField()
-    fecha1 = forms.DateField(widget=SelectDateWidget(), initial=datetime.date.today())
+    fecha1 = forms.DateField(widget=SelectDateWidget(), initial=datetime.date.today() + datetime.timedelta(days=-15))
     fecha2 = forms.DateField(widget=SelectDateWidget(), initial=datetime.date.today())
-    # tipo = forms.CharField(widget=forms.Select(choices=TIPO_TRABAJO))
-    # cantidad = forms.IntegerField()
-
-    # impresion = forms.CharField(widget=forms.Select(choices=HOJA))
-    # blanco_y_negro = forms.MultipleChoiceField(required=False, widget=forms.CheckboxInput, choices=BYN)
+    invertir = forms.BooleanField(label='invertir orden', required=False)

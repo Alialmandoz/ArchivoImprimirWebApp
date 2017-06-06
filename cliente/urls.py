@@ -3,7 +3,7 @@ from . import views
 
 urlpatterns = [
     # inicio
-    url(r'^inicio$', views.index, name='index'),
+    url(r'^inicio$', views.buscar_por_ordenes, name='index'),
 
     # resultado busqueda por letra
     url(r'^browse/(?P<letra>[-\w]+)/$', views.browse, name='browse'),
@@ -15,6 +15,9 @@ urlpatterns = [
 
     # detalle del cliente
     url(r'^detalle/(?P<slug>[-\w]+)/$', views.detalle_cliente, name='detalleCliente'),
+
+    # buscar la orden
+    url(r'^cliente/buscar/$', views.buscar_por_cliente, name='buscar_por_cliente'),
 
     # Borrar cliente
     url(r'^detalle/(?P<slug>[-\w]+)/edit/borrar/$', views.borrar_cliente, name='borrarCliente'),
@@ -37,7 +40,7 @@ urlpatterns = [
     url(r'^orden/(?P<pk>[-\d]+)/edit/$', views.editar_orden, name='editarOrden'),
 
     # buscar la orden
-    url(r'^orden/buscar/$', views.buscar_ordenes, name='buscar_ordenes'),
+    url(r'^orden/buscar/$', views.buscar_por_ordenes, name='buscar_por_ordenes'),
 
     # alerta Borrar orden
     url(r'^orden/(?P<pk>[-\d]+)/edit/alerta/$', views.alerta_borrar_orden, name='alertaBorrarOrden'),

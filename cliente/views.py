@@ -24,7 +24,7 @@ def paginas(model):
     return letras
 
 
-def index(request):
+def buscar_por_cliente(request):
     letra = 'a'
     a_buscar = request.GET.get('busqueda')
     clientes = Cliente.objects.order_by('apellido')
@@ -98,7 +98,7 @@ def alerta_borrar_cliente(request, slug):
 
 def borrar_cliente(request, slug):
     cliente = get_object_or_404(Cliente, slug=slug).delete()
-    return redirect(index)
+    return redirect(buscar_por_cliente)
 
 
 # ########################################### orden ###################################################### #
@@ -133,7 +133,7 @@ def editar_orden(request, pk):
     return render(request, 'orden/editar_orden.html', {'orden': orden, 'form': form})
 
 
-def buscar_ordenes(request):
+def buscar_por_ordenes(request):
     trabajos = Trabajo.objects.all()
     form = BuscarOrdenForm(request.POST or None)
     day1 = request.POST.get('fecha1_day')
@@ -142,19 +142,22 @@ def buscar_ordenes(request):
     day2 = request.POST.get('fecha2_day')
     month2 = request.POST.get('fecha2_month')
     year2 = request.POST.get('fecha2_year')
-
-    test = year1
+    invertir = request.POST.get('invertir')
 
     if form.is_valid():
         if request.method == "POST":
-            ordenes = Ordenes.objects.filter(fecha_encargo__gte=datetime.date(int(year1), int(month1), int(day1)),
-                                             fecha_encargo__lte=datetime.date(int(year2), int(month2), int(day2)))
-            print('antes: ' + str(ordenes))
-            return render(request, 'orden/buscar_ordenes.html', {'ordenes': ordenes, 'trabajos': trabajos, 'form': form})
-
+            if not invertir:
+                ordenes = Ordenes.objects.filter(fecha_encargo__gte=datetime.date(int(year1), int(month1), int(day1)),
+                                                 fecha_encargo__lte=datetime.date(int(year2), int(month2), int(day2)))\
+                    .order_by('pk')
+                return render(request, 'orden/buscar_ordenes.html', {'ordenes': ordenes, 'trabajos': trabajos, 'form': form})
+            else:
+                ordenes = Ordenes.objects.filter(fecha_encargo__gte=datetime.date(int(year1), int(month1), int(day1)),
+                                                 fecha_encargo__lte=datetime.date(int(year2), int(month2), int(day2)))\
+                    .order_by('-pk')
+                return render(request, 'orden/buscar_ordenes.html', {'ordenes': ordenes, 'trabajos': trabajos, 'form': form})
     else:
-        ordenes = Ordenes.objects.all()
-        print('despues: ' + str(ordenes))
+        ordenes = Ordenes.objects.filter(fecha_encargo__gte=datetime.date.today() + datetime.timedelta(days=-15))
         return render(request, 'orden/buscar_ordenes.html', {'ordenes': ordenes, 'trabajos': trabajos, 'form': form})
 
 
@@ -180,7 +183,7 @@ def alerta_borrar_orden(request, pk):
 
 def borrar_orden(request, pk):
     orden = get_object_or_404(Ordenes, pk=pk).delete()
-    return redirect(index)
+    return redirect(buscar_por_cliente)
 
 
 # ########################################### trabajo ###################################################### #
@@ -227,7 +230,7 @@ def alerta_borrar_trabajo(request, pk):
 
 def borrar_trabajo(request, pk):
     trabajo = get_object_or_404(Trabajo, pk=pk).delete()
-    return redirect(index)
+    return redirect(buscar_por_cliente)
 
 
 def calculador(request):
