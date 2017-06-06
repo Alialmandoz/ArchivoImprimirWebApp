@@ -69,4 +69,7 @@ urlpatterns = [
     # calculadora de precios
     url(r'^calculador/$', views.calculador, name='calculador'),
 
+    # contacto
+    url(r'^contacto/$', views.contacto, name='contacto'),
+
 ]

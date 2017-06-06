@@ -256,3 +256,7 @@ def calculador(request):
     return render(request, 'cliente/calculador.html')
 
 
+def contacto(request):
+    return render(request, 'cliente/contacto.html')
+
+
