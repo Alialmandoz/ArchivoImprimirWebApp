@@ -30,14 +30,14 @@ def buscar_por_cliente(request):
     clientes = Cliente.objects.order_by('apellido')
     letras = paginas(clientes)
     ordenes = Ordenes.objects.all()
-
-    if a_buscar is not None:
-        clientes = (get_list_or_404(Cliente, slug__icontains=a_buscar))
+    if request.user.is_authenticated:
+        if a_buscar is not None:
+            clientes = (get_list_or_404(Cliente, slug__icontains=a_buscar))
+            return render(request, 'cliente/index.html',
+                          {'clientes': clientes, 'ordenes': ordenes, 'letras': letras, 'letra': letra})
         return render(request, 'cliente/index.html',
-                        {'clientes': clientes, 'ordenes': ordenes, 'letras': letras, 'letra': letra})
-    return render(request, 'cliente/index.html',
-                    {'clientes': clientes, 'ordenes': ordenes, 'letras': letras, 'letra': letra})
-
+                      {'clientes': clientes, 'ordenes': ordenes, 'letras': letras, 'letra': letra})
+    return redirect('login')
 
 
 def browse(request, letra):
@@ -82,7 +82,7 @@ def editar_cliente(request, slug):
     else:
         form = form_class(instance=cliente)
 
-    return render(request, 'cliente/editar_cliente.html', {'cliente': cliente, 'form': form})
+    return render(request, 'Cliente/editar_cliente.html', {'cliente': cliente, 'form': form})
 
 
 def detalle_cliente(request, slug):

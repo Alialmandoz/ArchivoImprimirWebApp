@@ -18,8 +18,8 @@ from django.conf.urls import include, url
 from django.contrib import admin
 
 urlpatterns = [
-    url(r'^$', auth_views.login, name='login'),
-    url(r'^logout/$', auth_views.logout, name='logout'),
+    # url(r'^$', auth_views.login, name='login'),
+    # url(r'^logout/$', auth_views.logout, name='logout'),
     url(r'^admin/', admin.site.urls),
     url(r'^ali/', include('ali.urls')),
     url(r'', include('cliente.urls')),
