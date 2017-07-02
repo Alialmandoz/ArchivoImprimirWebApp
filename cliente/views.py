@@ -30,14 +30,14 @@ def buscar_por_cliente(request):
     clientes = Cliente.objects.order_by('apellido')
     letras = paginas(clientes)
     ordenes = Ordenes.objects.all()
-    if request.user.is_authenticated:
-        if a_buscar is not None:
-            clientes = (get_list_or_404(Cliente, slug__icontains=a_buscar))
-            return render(request, 'cliente/index.html',
-                          {'clientes': clientes, 'ordenes': ordenes, 'letras': letras, 'letra': letra})
+
+    if a_buscar is not None:
+        clientes = (get_list_or_404(Cliente, slug__icontains=a_buscar))
         return render(request, 'cliente/index.html',
-                      {'clientes': clientes, 'ordenes': ordenes, 'letras': letras, 'letra': letra})
-    return redirect('login')
+                        {'clientes': clientes, 'ordenes': ordenes, 'letras': letras, 'letra': letra})
+    return render(request, 'cliente/index.html',
+                    {'clientes': clientes, 'ordenes': ordenes, 'letras': letras, 'letra': letra})
+
 
 
 def browse(request, letra):
