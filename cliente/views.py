@@ -82,7 +82,7 @@ def editar_cliente(request, slug):
     else:
         form = form_class(instance=cliente)
 
-    return render(request, 'Cliente/editar_cliente.html', {'cliente': cliente, 'form': form})
+    return render(request, 'cliente/editar_cliente.html', {'cliente': cliente, 'form': form})
 
 
 def detalle_cliente(request, slug):
