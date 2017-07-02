@@ -1,11 +1,10 @@
 from django.conf.urls import url
 from . import views
 
-import ali
 
 urlpatterns = [
     # inicio
-    url(r'^inicio$', ali.views.home, name='index'),
+
 
     # resultado busqueda por letra
     url(r'^browse/(?P<letra>[-\w]+)/$', views.browse, name='browse'),
