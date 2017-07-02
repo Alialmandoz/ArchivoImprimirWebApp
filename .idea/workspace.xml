@@ -2,15 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="74d63c7a-20cc-442d-835e-c83ae0de0f48" name="Default" comment="">
-      <change type="DELETED" beforePath="D:\Documentos\ArchivoImprimir\ali\templates\ali\about_me.html" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ali/templates/layout/base.html" afterPath="$PROJECT_DIR$/ali/templates/layout/base.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cliente/templates/layouts/base.html" afterPath="$PROJECT_DIR$/cliente/templates/layouts/base.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cliente/templates/layouts/baselog.html" afterPath="$PROJECT_DIR$/cliente/templates/layouts/baselog.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ali/templates/ali/contact.html" afterPath="$PROJECT_DIR$/ali/templates/ali/contact.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ali/templates/ali/home.html" afterPath="$PROJECT_DIR$/ali/templates/ali/home.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cliente/urls.py" afterPath="$PROJECT_DIR$/cliente/urls.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cliente/views.py" afterPath="$PROJECT_DIR$/cliente/views.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="ArchivoImprimir.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -73,10 +65,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="base.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="base.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/cliente/templates/layouts/base.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.13611615" vertical-offset="525" max-vertical-offset="1375">
+            <state vertical-scroll-proportion="-2.7777777" vertical-offset="525" max-vertical-offset="1375">
               <caret line="24" column="96" selection-start-line="24" selection-start-column="96" selection-end-line="24" selection-end-column="96" />
               <folding />
             </state>
@@ -105,11 +97,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/cliente/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="604" max-vertical-offset="6700">
-              <caret line="88" column="51" selection-start-line="88" selection-start-column="51" selection-end-line="88" selection-end-column="51" />
+            <state vertical-scroll-proportion="0.79646015" vertical-offset="600" max-vertical-offset="6700">
+              <caret line="42" column="27" selection-start-line="42" selection-start-column="27" selection-end-line="42" selection-end-column="27" />
               <folding>
                 <element signature="e#0#73#0" expanded="true" />
               </folding>
@@ -191,11 +183,11 @@
         <option value="$PROJECT_DIR$/ali/templates/ali/home.html" />
         <option value="$PROJECT_DIR$/cliente/urls.py" />
         <option value="$PROJECT_DIR$/ArchivoImprimir/urls.py" />
-        <option value="$PROJECT_DIR$/cliente/views.py" />
         <option value="$PROJECT_DIR$/ali/urls.py" />
         <option value="$PROJECT_DIR$/ali/templates/layout/base.html" />
         <option value="$PROJECT_DIR$/cliente/templates/layouts/basee.html" />
         <option value="$PROJECT_DIR$/cliente/templates/layouts/base.html" />
+        <option value="$PROJECT_DIR$/cliente/views.py" />
       </list>
     </option>
   </component>
@@ -1264,21 +1256,19 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/cliente/templates/layouts/base.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-2.7777777" vertical-offset="525" max-vertical-offset="1375">
+          <caret line="24" column="96" selection-start-line="24" selection-start-column="96" selection-end-line="24" selection-end-column="96" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/ali/views.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="550">
           <caret line="16" column="45" selection-start-line="16" selection-start-column="45" selection-end-line="16" selection-end-column="45" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cliente/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="604" max-vertical-offset="6700">
-          <caret line="88" column="51" selection-start-line="88" selection-start-column="51" selection-end-line="88" selection-end-column="51" />
-          <folding>
-            <element signature="e#0#73#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1292,11 +1282,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/cliente/templates/layouts/base.html">
+    <entry file="file://$PROJECT_DIR$/cliente/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.13611615" vertical-offset="525" max-vertical-offset="1375">
-          <caret line="24" column="96" selection-start-line="24" selection-start-column="96" selection-end-line="24" selection-end-column="96" />
-          <folding />
+        <state vertical-scroll-proportion="0.79646015" vertical-offset="600" max-vertical-offset="6700">
+          <caret line="42" column="27" selection-start-line="42" selection-start-column="27" selection-end-line="42" selection-end-column="27" />
+          <folding>
+            <element signature="e#0#73#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
