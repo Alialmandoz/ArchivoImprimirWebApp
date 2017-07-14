@@ -4,5 +4,6 @@
     <data-source name="SQLite -" uuid="13f3285b-b500-4dbd-ac6d-e052909e1ba6">
       <secret-storage>master_key</secret-storage>
     </data-source>
+    <data-source name="Django default" uuid="07ece884-6296-4c0f-ac3b-091a7862e76a" />
   </component>
 </project>
