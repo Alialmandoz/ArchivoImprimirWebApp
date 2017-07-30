@@ -6,6 +6,7 @@ from django.shortcuts import render
 from .models import Cliente, Ordenes, Trabajo
 from .forms import ClienteForm, OrdenForm, Calculador, TrabajoForm, BuscarOrdenForm
 from cliente import choices
+import cliente.management.commands.crar_orden as c_o
 
 
 # ################################# login ######################################################## #
@@ -134,6 +135,7 @@ def editar_orden(request, pk):
 
 
 def buscar_por_ordenes(request):
+    c_o.gen_orden_trabajo()
     trabajos = Trabajo.objects.all()
     form = BuscarOrdenForm(request.POST or None)
     day1 = request.POST.get('fecha1_day')

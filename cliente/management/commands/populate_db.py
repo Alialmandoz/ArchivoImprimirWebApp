@@ -49,3 +49,6 @@ class Command(BaseCommand):
     def handle(self, *args, **options):
         clientes = options['clientes']
         self._crear_cliente(clientes)
+
+
+

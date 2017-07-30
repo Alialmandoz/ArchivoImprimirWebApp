@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from ali.models import Mensaje
 
 from .forms import MensajeForm
 
@@ -17,10 +18,12 @@ def contact(request):
         if form.is_valid():
             form.save()
             print('guardando msj')
-        return render(request, 'ali/gracias.html')
+            mensajes = Mensaje.objects.all()
+        return render(request, 'ali/contacto.html', {'form': form, 'mensajes': mensajes})
     else:
+        mensajes = Mensaje.objects.all()
         form = MensajeForm()
-    return render(request, 'ali/contact.html', {'form': form})
+    return render(request, 'ali/contacto.html', {'form': form, 'mensajes': mensajes})
 
 
 def about(request):

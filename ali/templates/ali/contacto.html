@@ -1,0 +1,62 @@
+{% extends 'layout/base.html' %}
+{% load staticfiles %}
+{% load bootstrap %}
+
+
+
+
+
+{% block content %}
+    <style type="text/css">
+        body {
+         background: url('https://images5.alphacoders.com/695/thumb-1920-695931.jpg') no-repeat center center fixed;
+        }
+    </style>
+    <div class="container-fluid">
+        <div class="section">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-7 col-lg-offset-3">
+
+                            <div class="well">
+                                <h3>Dejame tu mensaje</h3>
+
+                                <form role="form" method="post">
+                                    {% csrf_token %}
+                                    <div class="form-group text-white">
+                                        {{ form|bootstrap }}
+                                        <button class="btn btn-primary btn-block" type="submit">enviar</button>
+                                    </div>
+                                </form>
+                            </div>
+
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="panel panel-primary">
+                                        <div class="panel-body">
+                                            <ul class="list-group">
+                                                {% for mensaje in mensajes %}
+                                                    <li class="list-group-item">
+                                                        {{ mensaje.texto }}
+                                                        <div align="right">
+                                                            <em class="label label-default">{{ mensaje.nombre }} : {{ mensaje.fecha }}</em>
+                                                        </div>
+                                                    </li>
+                                                {% endfor %}
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+
+{% endblock %}
+</body>
+</html>
