@@ -4,7 +4,7 @@ from . import views
 
 urlpatterns = [
     # inicio
-
+    url(r'^inicio', views.buscar_por_cliente, name='index'),
 
     # resultado busqueda por letra
     url(r'^browse/(?P<letra>[-\w]+)/$', views.browse, name='browse'),

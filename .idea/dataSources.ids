@@ -167,6 +167,7 @@
       <column name="mail" sqlType="VARCHAR(254)" precision="2000000000" scale="10" nullable="true" jdbcType="12"/>
       <column name="telefono" sqlType="VARCHAR(200)" precision="2000000000" scale="10" nullable="true" jdbcType="12"/>
       <column name="texto" sqlType="TEXT" precision="2000000000" scale="10" nullable="false" jdbcType="12"/>
+      <column name="fecha" sqlType="DATE" precision="2000000000" scale="10" nullable="false" jdbcType="12"/>
       <primary-key columns="id"/>
     </table>
     <table name="auth_group" schema="" catalog="" type="TABLE">

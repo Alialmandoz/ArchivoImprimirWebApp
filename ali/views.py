@@ -19,6 +19,7 @@ def contact(request):
             form.save()
             print('guardando msj')
             mensajes = Mensaje.objects.all()
+            form = MensajeForm(request.POST or None)
         return render(request, 'ali/contacto.html', {'form': form, 'mensajes': mensajes})
     else:
         mensajes = Mensaje.objects.all()
